@@ -1,0 +1,547 @@
+{
+  "meta": {
+    "project": "/home/user/threadshot",
+    "sessionCount": 1,
+    "scope": "--limit 200 (전체 24개가 한도 이하)",
+    "adequacy": {
+      "spanDays": 0.01,
+      "warnings": [
+        "세션 파일이 1개뿐이다. 여러 세션에 걸친 개발 이력이 아니다 (명세 §2).",
+        "이력 기간이 0.01일이다. \"긴 시간축의 변경/취소/재활성화\"가 존재할 수 없는 길이다.",
+        "사람 메시지가 1개뿐이다. 필터 품질을 통계적으로 평가할 수 없다.",
+        "intent-bearing 메시지가 1개뿐이다. Requirement 복구 성능을 비교할 대상이 없다."
+      ]
+    }
+  },
+  "diagnostics": {
+    "files": 1,
+    "linesRead": 131,
+    "parseFailures": 0,
+    "parseFailureSamples": [],
+    "duplicateUuids": 0,
+    "recordTypes": {
+      "queue-operation": 2,
+      "user": 24,
+      "attachment": 37,
+      "atis-latch": 10,
+      "last-prompt": 9,
+      "assistant": 49
+    },
+    "unknownRecordTypes": {},
+    "attachmentTypes": {
+      "environment": 2,
+      "model": 1,
+      "deferred_tools_delta": 1,
+      "agent_listing_delta": 1,
+      "mcp_instructions_delta": 1,
+      "skill_listing": 1,
+      "auto_mode": 1,
+      "total_tokens_reminder": 21,
+      "session_context": 1,
+      "date": 1,
+      "remote_session_change": 1,
+      "prompt_snapshot": 2,
+      "task_reminder": 3
+    },
+    "userContentShapes": {
+      "string": 1,
+      "tool_result": 23
+    },
+    "unknownContentBlocks": {},
+    "missingTimestamp": 0,
+    "sidechainEntries": 0,
+    "humanSignalCoverage": {
+      "origin": 1,
+      "promptSource": 1,
+      "permissionMode": 1
+    },
+    "versions": {
+      "2.1.263": 110
+    },
+    "entrypoints": {
+      "remote_mobile": 110
+    }
+  },
+  "messages": [
+    {
+      "id": "6ed19a2e-4f7c-4746-abe6-e5d2acd7ef46",
+      "session_id": "85bd9da2-2b86-5261-9c52-13526d468112",
+      "timestamp": "2026-09-07T14:53:23.544Z",
+      "text": "# IntentGuard Validation Prototype — FINAL\n\n## 0. 목적\n\n이 프로젝트는 IntentGuard 제품을 만드는 것이 아니다.\n\n단 하나의 가설만 검증한다.\n\n\"Claude Code의 장기간 개발 기록에서 현재 유효한 Product Contract를 복구하는\nIntentGuard 전용 파이프라인이,\n동일한 기록을 최신 장문맥 LLM에게 직접 정리시키는 강한 Baseline보다\n실제로 더 정확하고 유용한가?\"\n\n이 가설이 성립하지 않으면 IntentGuard 개발을 중단한다.\n\n이 실험의 목표는 IntentGuard를 증명하는 것이 아니라,\nIntentGuard가 필요 없는 이유를 최대한 싸고 빠르게 찾아내는 것이다.\n\n\n==================================================\n1. 이번 프로토타입에서 절대 만들지 않을 것\n==================================================\n\n다음은 구현하지 않는다.\n\n- UI\n- 웹앱\n- Codex 지원\n- Git 분석\n- 현재 코드 분석\n- Risk Advisor\n- Prompt Guard\n- SQLite\n- 브라우저 테스트\n- Playwright\n- 자동 코드 수정\n- SaaS\n- 회원가입\n- 결제\n- 팀 기능\n- 클라우드 동기화\n- Hook 연동\n- 보안 검사\n- 배포 기능\n\n오직:\n\nClaude history\n→ 실제 사용자 메시지 필터링\n→ IntentGuard Product Contract\n→ Baseline 3회\n→ 의미 병합\n→ Blind Evaluation\n→ 결과 분석\n\n까지만 만든다.\n\n\n==================================================\n2. 검증 대상 프로젝트 선택\n==================================================\n\n아무 프로젝트나 사용하지 않는다.\n\n가능하면 내가 Claude Code로 가장 오래 개발한 실제 프로젝트를 사용한다.\n\n우선 조건:\n\n- 여러 세션에 걸쳐 개발됨\n- 사용자 메시지가 충분히 많음\n- 요구사항이 여러 번 추가됨\n- 기존 요구사항 변경 사례 존재\n- 기능 취소 사례 존재\n- 임시 테스트 변경 사례 존재\n- 나중에 원래 요구사항으로 되돌린 사례 존재\n- 같은 기능을 여러 번 수정한 사례 존재\n- 장기간 개발해서 초기 요구사항을 잊었을 가능성이 있음\n\n짧고 단순한 프로젝트의 결과로 IntentGuard 사업성을 판정하지 않는다.\n\n\n==================================================\n3. 실행은 반드시 2단계\n==================================================\n\n### PHASE A — SMOKE TEST\n\n최근 약 200개 메시지만 사용한다.\n\n목적:\n\n- Claude JSONL parser 확인\n- 실제 인간 메시지와 noise 분리 확인\n- pipeline이 정상적으로 실행되는지 확인\n- stage별 token 사용량 확인\n\nCLI에는 최소 다음 옵션을 지원한다.\n\n--limit\n--from\n--to\n\n예:\n\nnpm run analyze -- \"/project/path\" --limit 200\n\n\n중요:\n\n200개 결과로 IntentGuard의 GO / NO-GO를 판단하지 않는다.\n\n이는 parser/filter smoke test일 뿐이다.\n\n\n### PHASE B — REAL BENCHMARK\n\nSmoke Test가 통과하면\n반드시 전체 프로젝트 이력으로 본 비교를 실행한다.\n\nIntentGuard의 존재 이유는 긴 시간축의:\n\n- 변경\n- 취소\n- 임시 변경\n- 재활성화\n- 대체\n\n를 복구하는 것이므로,\n전체 history 실행은 선택사항이 아니라 필수다.\n\n\n==================================================\n4. STEP 3에서 반드시 실행을 중단한다\n==================================================\n\nSmoke Test에서 Parser + Message Filtering이 끝난 뒤:\n\noutput/message_filter_samples.md\n\n를 생성한다.\n\n여기에 최소:\n\n- HUMAN_INTENT 샘플 30개\n- HUMAN_CORRECTION 샘플\n- 제외된 Noise 샘플 30개\n- AMBIGUOUS/UNKNOWN 샘플\n\n을 넣는다.\n\n\n그리고 자동 실행을 반드시 중단한다.\n\n터미널에 명확히 출력:\n\n\"STOP: message_filter_samples.md를 사람이 직접 검토한 뒤 다음 단계를 실행하세요.\"\n\n사용자의 명시적인 다음 실행 명령 없이는\nRequirement Pipeline / Baseline / Full Benchmark를 자동으로 진행하지 않는다.\n\n이 단계가 가장 중요하다.\n\n쓰레기 입력 위에서 정교한 평가를 하지 않는다.\n\n\n==================================================\n5. Claude Code Raw Message Parsing\n==================================================\n\n현재 설치된 Claude Code 환경의 실제 session/transcript 구조를 직접 조사한다.\n\n예제 JSONL만 보고 하드코딩하지 않는다.\n\nrole=user라고 해서 모두 실제 사용자의 의도 메시지라고 가정하지 않는다.\n\nuser-role 내부에도 다음과 같은 것이 포함될 수 있다.\n\n- tool result\n- system-generated content\n- slash command expansion\n- sub-agent / sidechain content\n- pasted error\n- terminal output\n- 긴 코드 붙여넣기\n- 자동 생성 context\n- low-information reply\n- 단순 확인\n- 맥락 없는 짧은 응답\n\n\n==================================================\n6. Raw Message Filtering\n==================================================\n\n각 user-role message를 우선 다음 중 하나로 분류한다.\n\nHUMAN_INTENT\nHUMAN_CONTEXT\nHUMAN_CONFIRMATION\nHUMAN_CORRECTION\nPASTED_CONTENT\nERROR_LOG\nTOOL_OR_SYSTEM_CONTENT\nLOW_INFORMATION\nUNKNOWN\n\n\n예:\n\n\"무료 회원은 월 3번만 되게 해\"\n→ HUMAN_INTENT\n\n\"아니 그거 말고 전에 방식으로\"\n→ HUMAN_CORRECTION\n\n\"ㅇㅇ\"\n→ HUMAN_CONFIRMATION 또는 LOW_INFORMATION\n\n\"계속\"\n→ LOW_INFORMATION\n\n긴 stack trace\n→ ERROR_LOG\n\n자동 context\n→ TOOL_OR_SYSTEM_CONTENT\n\n\nLOW_INFORMATION 메시지를 독립 Requirement로 만들지 않는다.\n\nHUMAN_CONFIRMATION은 반드시 이전 맥락과 연결한다.\n\n예:\n\n사용자:\n\"무료 사용자는 3회로 제한할까?\"\n\n사용자:\n\"ㅇㅇ\"\n\n두 번째 메시지를 독립 Requirement로 만들지 않고\n첫 번째 발언의 승인으로 해석할 수 있게 context를 연결한다.\n\n\n==================================================\n7. Filtering Report\n==================================================\n\n다음을 기록한다.\n\nRaw user-role messages\nActual human messages\nPotential intent-bearing messages\nLow-information/context-only messages\nNoise messages\nUnknown messages\n\n예:\n\nRaw user-role messages: 1,284\nHuman messages: 742\nIntent-bearing: 391\nLow information: 174\nNoise/system/tool: 351\nUnknown: 27\n\noutput/message_filter_report.md\n\n생성.\n\n\n==================================================\n8. Normalized Timeline\n==================================================\n\n필터링된 human message를 다음 구조로 저장한다.\n\n{\n  \"id\": \"...\",\n  \"session_id\": \"...\",\n  \"timestamp\": \"...\",\n  \"text\": \"...\",\n  \"message_type\": \"...\",\n  \"context_message_ids\": [],\n  \"confidence\": 0.0\n}\n\n시간순 정렬.\n\ndata/user_messages.json\n\n\n==================================================\n9. Message Classification\n==================================================\n\nIntent-bearing human message를 다음으로 분류한다.\n\nREQUIREMENT\nCHANGE\nREJECTION\nTEMPORARY_CHANGE\nIDEA\nQUESTION\nBUG_REPORT\nPREFERENCE\nNON_REQUIREMENT\nAMBIGUOUS\n\n\n예:\n\n\"무료 사용자 월 3회 제한\"\n→ REQUIREMENT\n\n\"테스트할 때만 제한 풀어\"\n→ TEMPORARY_CHANGE\n\n\"아까 만든 공유 기능은 빼\"\n→ REJECTION\n\n\"팀 기능도 나중에 만들까?\"\n→ IDEA\n\n질문/아이디어를 ACTIVE Requirement로 만들지 않는다.\n\n\n==================================================\n10. Requirement Candidate\n==================================================\n\nRequirement 관련 메시지에서만 후보를 만든다.\n\n구조:\n\n{\n  \"id\": \"...\",\n  \"normalized_requirement\": \"...\",\n  \"type\": \"...\",\n  \"source_message_id\": \"...\",\n  \"source_text\": \"...\",\n  \"timestamp\": \"...\",\n  \"confidence\": 0.0\n}\n\n사용자가 실제로 말하지 않은 세부사항을 보충하지 않는다.\n\n\n==================================================\n11. IntentGuard Temporal Reconciliation\n==================================================\n\n이 프로토타입의 핵심이다.\n\n동일하거나 관련된 Requirement를 시간순으로 연결한다.\n\n최종 상태:\n\nACTIVE\nSUPERSEDED\nREJECTED\nTEMPORARY\nAMBIGUOUS\n\n\n예:\n\n9/1\n\"무료 사용자는 월 3회\"\n\n9/5\n\"테스트하는 동안 제한 풀어\"\n\n9/10\n\"출시할 때는 다시 월 3회로\"\n\n결과:\n\n무료 사용자는 월 3회 분석 가능\n\nSTATUS:\nACTIVE\n\nHISTORY:\nCREATED\n→ TEMPORARILY_DISABLED\n→ REACTIVATED\n\n\n단순히 마지막 메시지만 믿지 않는다.\n\n후속 메시지가 영구 변경인지,\n임시 변경인지,\n기존 상태 복구인지 판단한다.\n\n\n==================================================\n12. IntentGuard Pipeline\n==================================================\n\n한 번에:\n\n\"전체 대화를 읽고 현재 요구사항을 정리해\"\n\n하지 않는다.\n\n반드시 단계별로 처리한다.\n\nStage 1\nRaw Human Message Filtering\n\nStage 2\nMessage Classification\n\nStage 3\nRequirement Candidate Extraction\n\nStage 4\nSimilar Requirement Grouping\n\nStage 5\nTemporal Reconciliation\n\nStage 6\nFinal Status Decision\n\nStage 7\nAmbiguity Detection\n\n\n각 단계 결과 저장:\n\ndata/classified_messages.json\ndata/candidates.json\ndata/groups.json\ndata/reconciled.json\n\n\n==================================================\n13. AMBIGUOUS 회피 방지\n==================================================\n\nPrecision만 높이면 안 된다.\n\n애매한 것을 전부 AMBIGUOUS로 보내는 시스템은 쓸모가 없다.\n\n반드시 계산:\n\nAMBIGUOUS RATE\n\n= AMBIGUOUS / 전체 Requirement Candidates\n\n\nBlind 평가 이후 추가 계산:\n\nJUSTIFIED AMBIGUOUS\n\n실제로 사람도 현재 상태를 확정하기 어려운 항목\n\n\nAVOIDABLE AMBIGUOUS\n\n사람은 충분히 판단 가능했지만\nIntentGuard가 판단을 회피한 항목\n\n\n예:\n\nCandidates: 100\nAmbiguous: 25\n\nAmbiguous Rate: 25%\n\n사람 평가 결과:\n\n실제 애매함: 8\n판단 가능: 17\n\n→ 많은 AMBIGUOUS가 회피였음\n\n\nACTIVE Precision은 반드시 이 값들과 함께 해석한다.\n\n\n==================================================\n14. IntentGuard Output\n==================================================\n\noutput/intentguard_contract.md\n\n형식:\n\n# Current Product Contract\n\n## ACTIVE\n\nRequirement text\n\nSource\nOriginal user message\nTimestamp\n\nCurrent Status\n\n---\n\n## AMBIGUOUS\n\n...\n\n---\n\n## SUPERSEDED\n\n...\n\n---\n\n## REJECTED\n\n...\n\n\n==================================================\n15. Baseline은 최대한 강하게 만든다\n==================================================\n\nIntentGuard를 유리하게 만들기 위해 약한 Baseline을 만들지 않는다.\n\n동일한 filtered human timeline을 최신 장문맥 LLM에 제공한다.\n\nBaseline prompt:\n\n\"다음은 하나의 소프트웨어 프로젝트를 장기간 개발하면서 사용자가 AI 코딩 도구에 입력한 시간순 메시지입니다.\n\n현재 시점에서 실제로 유효한 제품 요구사항을 복구하세요.\n\n시간순 요구사항 추가, 변경, 취소, 임시 변경, 재활성화, 대체 관계를 모두 고려하세요.\n\n질문, 단순 아이디어, 이미 취소된 요구사항, 종료된 임시 테스트 설정은 현재 ACTIVE 요구사항에서 제외하세요.\n\n서로 충돌하는 지시가 있다면 시간축 전체를 보고 현재 상태를 판단하세요.\n\n판단할 수 없다면 AMBIGUOUS로 표시하세요.\n\n사용자가 실제로 말하지 않은 요구사항을 추가하지 마세요.\"\n\n\nStructured Output 사용.\n\n\n==================================================\n16. Baseline은 동일 조건으로 3회 실행\n==================================================\n\n동일 입력\n동일 prompt\n동일 model\n\nBaseline을 3회 실행한다.\n\noutput:\n\nbaseline_1.json\nbaseline_2.json\nbaseline_3.json\n\n평가 전에 어떤 것이 Best인지 정하지 않는다.\n\n세 출력 모두 Blind Evaluation 대상에 넣는다.\n\n실행별 편차도 기록한다.\n\n\n==================================================\n17. 전체 이력 Context Limit 분석\n==================================================\n\nReal Benchmark에서 전체 filtered timeline에 대해:\n\n전체 예상 tokens\nBaseline model context limit\n실제로 전송한 tokens\n포함된 history 비율\n잘린 message 수\n잘린 날짜 범위\n\n를 기록한다.\n\nBaseline이 전체 이력을 한 번에 받을 수 없다면\n임의로 IntentGuard를 유리하게 자르지 않는다.\n\n가능한 최선의 Baseline 전략을 사용한다.\n\n필요하다면 Baseline 측에도 합리적인 long-context/chunk summarization 전략을 허용하되\n해당 구조와 비용을 기록한다.\n\nIntentGuard가 단지 더 많은 context를 처리해서 이긴 것인지,\n시간축 구조화 때문에 이긴 것인지 구분할 수 있어야 한다.\n\n\n==================================================\n18. Semantic Matching — 전수 비교 금지\n==================================================\n\n문자열 비교만 사용하지 않는다.\n\n하지만 모든 Requirement pair를 LLM으로 비교하지 않는다.\n\n예:\n\nIntentGuard 60개\nBaseline 60개\n\n전체 3,600 pair를 전수 Judge하지 않는다.\n\n\n1차 Candidate Retrieval:\n\n- lexical similarity\n- keyword overlap\n- local embedding 가능 시 사용\n\n각 Requirement당 상위 3~5개 후보만 추린다.\n\n\n2차 LLM Judge:\n\nRequirement 하나\n+\ncandidate 3~5개\n\n를 한 번에 batch 판정.\n\n\nJudge 출력:\n\nSAME_REQUIREMENT\nRELATED_BUT_DIFFERENT\nDIFFERENT\nUNCERTAIN\n\n\nA→B / B→A 양방향 검사는\n\nUNCERTAIN 또는 경계 사례에만 수행한다.\n\nSemantic Judge 총 호출 수와 비용 기록.\n\n\n==================================================\n19. Blind Evaluation — 4개 결과를 한 번에 평가\n==================================================\n\n다음을 모두 합친다.\n\n- IntentGuard\n- Baseline 1\n- Baseline 2\n- Baseline 3\n\nSemantic merge로 중복을 제거한다.\n\n각 merged item 내부에는 hidden metadata로:\n\nsources:\n[\n  \"intentguard\",\n  \"baseline_1\",\n  \"baseline_3\"\n]\n\n등을 저장한다.\n\n하지만 평가 사용자에게는 절대 보여주지 않는다.\n\n\nBlind 평가에 표시하는 정보는 오직:\n\n- Requirement text\n- Proposed current status\n\n뿐이다.\n\n\n숨길 것:\n\n- 시스템 이름\n- ID\n- ID prefix\n- confidence\n- history\n- source date\n- source tool\n- formatting 차이\n\n평가 항목은 random shuffle.\n\n\n==================================================\n20. Blind Evaluation 판정\n==================================================\n\n사용자가 각 항목에 대해 선택:\n\nCORRECT_ACTIVE\n\n현재 실제 ACTIVE 요구사항이 맞음\n\nCORRECT_NON_ACTIVE\n\n실제 요구사항이지만 현재 ACTIVE는 아님\n\nNOT_A_REAL_REQUIREMENT\n\n실제 요구사항이 아니거나 시스템이 만들어낸 내용\n\nWRONG_STATUS\n\nRequirement 자체는 존재하지만 시스템의 현재 상태 판정이 틀림\n\nAMBIGUOUS_IN_REALITY\n\n사람이 전체 맥락을 봐도 최종 상태 판단이 어렵거나 불명확\n\n\n평가 완료 전 source label을 절대 복원하지 않는다.\n\n\n==================================================\n21. 평가 피로 방지\n==================================================\n\nBlind list가 100개 이하라면 한 세션 사용 가능.\n\n100개 초과 시 자동 분할한다.\n\n권장:\n\n한 evaluation session당 50~80개.\n\n각 session 안에서는 random order.\n\n중간 저장 가능해야 한다.\n\n사용자가 한 번에 전부 판정하도록 하지 않는다.\n\n\n==================================================\n22. MANUAL_MISSING_REQUIREMENTS — 가장 중요한 산출물\n==================================================\n\nBlind Evaluation이 끝난 뒤 반드시 별도로 묻는다.\n\n\"위 목록에는 없지만,\n현재 제품에 반드시 있어야 한다고 당신이 알고 있는 중요한 요구사항이 있습니까?\"\n\n사용자가 기억나는 만큼 작성한다.\n\n저장:\n\nMANUAL_MISSING_REQUIREMENTS\n\n\n각 항목에 대해 사후 확인:\n\nIntentGuard 발견?\nBaseline 1 발견?\nBaseline 2 발견?\nBaseline 3 발견?\n모두 누락?\n\n\n특히:\n\n사용자가 실제 잊고 있었거나\n평가 과정에서 뒤늦게 떠올린 중요한 Requirement를\n\nIntentGuard만 발견했다면\n\n가장 강한 Positive Signal 중 하나다.\n\n\n==================================================\n23. MANUAL_MISSING = 0 해석\n==================================================\n\nMANUAL_MISSING_REQUIREMENTS가 0이라고 자동으로 성공으로 해석하지 않는다.\n\n두 가지 가능성을 별도 기록한다.\n\nA.\n\n두 시스템 모두 충분히 잘 복구했다.\n\nB.\n\n사용자가 애초에 현재 Product Contract를 거의 다 기억하고 있어서\nIntentGuard가 해결하려는 \"잊힌 요구사항\" 문제가 이 프로젝트에서는 약했다.\n\nRESULT에 둘 다 명시한다.\n\n\n==================================================\n24. 평가 지표\n==================================================\n\n각 시스템별 계산:\n\nACTIVE Precision\n\nFalse Requirement Rate\n\nWrong Status Rate\n\nAMBIGUOUS Rate\n\nJustified Ambiguous Rate\n\nAvoidable Ambiguous Rate\n\nTemporal State Accuracy\n\nManual Missing Requirement 발견 수\n\n\n그리고 시간축 사건별 정확도를 별도 계산:\n\nREJECTION\n\nTEMPORARY CHANGE\n\nSUPERSEDED\n\nREACTIVATION\n\n\n==================================================\n25. Baseline Stability\n==================================================\n\nBaseline 3회 결과를 비교한다.\n\n- ACTIVE 수\n- 세 실행 모두 공통 ACTIVE\n- 한두 실행에만 존재한 ACTIVE\n- status disagreement\n- AMBIGUOUS 차이\n\nBaseline이 동일 입력에서도 크게 흔들리는지 측정한다.\n\n\n==================================================\n26. IntentGuard Stability\n==================================================\n\n비용이 과도하지 않으면\nIntentGuard의 최종 reconciliation 단계도 2회 실행 가능한 옵션을 둔다.\n\n동일 Requirement에서 status가 얼마나 흔들리는지 기록.\n\n필수는 아니지만 구현하기 쉽다면 지원한다.\n\n\n==================================================\n27. 비용 추적\n==================================================\n\n모든 LLM 호출마다:\n\nprovider\nmodel\nstage\ninput tokens\noutput tokens\nestimated cost\n\n저장.\n\n\n구분:\n\nMessage Filtering\nClassification\nCandidate Extraction\nReconciliation\nBaseline 1\nBaseline 2\nBaseline 3\nSemantic Judge\n\n\n==================================================\n28. 전체 이력 실행 전에 비용을 반드시 추산\n==================================================\n\nSmoke Test 200개가 끝난 뒤\n전체 benchmark를 실행하기 전에 비용 추정치를 출력한다.\n\n예:\n\nSmoke messages: 200\nFull messages: 2,340\n\nObserved Smoke Cost:\n$2.80\n\nEstimated Full IntentGuard Cost:\n$XX\n\nEstimated Baseline x3:\n$XX\n\nEstimated Semantic Judge:\n$XX\n\nEstimated Total:\n$XX\n\n\n이 값을:\n\noutput/full_run_cost_estimate.md\n\n에 저장한다.\n\n\n그리고 자동으로 Full Benchmark를 실행하지 않는다.\n\n터미널 출력:\n\n\"STOP: 전체 Benchmark 예상 비용을 확인한 후 명시적으로 full run을 실행하세요.\"\n\n사용자의 명시적 실행 명령 이후에만 전체 분석을 수행한다.\n\n\n==================================================\n29. RESULT.md 구조\n==================================================\n\nRESULT.md의 순서는 반드시 다음과 같다.\n\n\n# 1. MANUAL MISSING REQUIREMENTS\n\n가장 먼저 배치.\n\n각 Requirement:\n\n- IntentGuard 발견 여부\n- Baseline 1 발견 여부\n- Baseline 2 발견 여부\n- Baseline 3 발견 여부\n\n\n# 2. 실제 잊힌 Requirement 사례\n\n사용자가 잊었던 Requirement가 존재했으면 구체적으로 기술.\n\n\n# 3. Temporal Recovery\n\n취소\n임시 변경\n재활성화\n대체\n\n사건에서 시스템별 성능.\n\n\n# 4. Blind Evaluation\n\n시스템별 결과.\n\n\n# 5. AMBIGUOUS 분석\n\nAmbiguous Rate\n\nJustified\n\nAvoidable\n\n\n# 6. Baseline Stability\n\n\n# 7. Context Length / History Coverage\n\n\n# 8. 비용\n\n\n# 9. Message Filtering 품질\n\n\n# 10. 대표 실패 사례\n\nIntentGuard만 틀린 사례\n\nBaseline만 틀린 사례\n\n둘 다 틀린 사례\n\n\n# 11. Parsing / Maintenance Risk\n\nClaude JSONL을 읽는 과정에서:\n\n- 비공개 포맷 의존성\n- schema variation\n- parsing 복잡성\n- noise 처리 난이도\n- 유지보수 예상 부담\n\n을 정리한다.\n\n\nGO / NO-GO를 자동 판정하지 않는다.\n\n\n==================================================\n30. 가장 중요한 실험 해석 원칙\n==================================================\n\n숫자 하나로 판단하지 않는다.\n\nIntentGuard Precision이 높아도:\n\nAMBIGUOUS가 지나치게 많으면 좋은 결과가 아니다.\n\nIntentGuard가 더 정확해도:\n\n차이가 미미하고 비용/복잡성만 크다면 좋은 결과가 아니다.\n\n한두 Requirement를 우연히 더 맞혔다고 승리로 보지 않는다.\n\n핵심은:\n\n긴 시간축에서\n변경 / 취소 / 임시 설정 / 복구 / 대체\n\n를 Baseline보다 실질적으로 더 잘 복구하는가?\n\n그리고 무엇보다:\n\n사용자가 실제로 잊은 중요한 Requirement를\nIntentGuard가 다시 찾아주는가?\n\n이다.\n\n\n==================================================\n31. 파서/필터 유지보수 자체도 실험 대상\n==================================================\n\nClaude Code JSONL은 외부 제품이 통제하는 포맷이다.\n\nParser를 만드는 과정이:\n\n- 지나치게 복잡하거나\n- 예외 케이스가 너무 많거나\n- 내부 구조 변화에 취약하거나\n- 대부분의 개발 시간을 잡아먹는다면\n\n그것은 단순 구현 문제가 아니다.\n\nIntentGuard 제품의 장기 유지비용에 대한 실제 데이터다.\n\n그 사실을 숨기지 않는다.\n\n\n==================================================\n32. HARD TIME LIMIT\n==================================================\n\n이 프로토타입 전체에 며칠 이상 투자하지 않는다.\n\n기본 목표:\n\n1~3일 내 핵심 실험 완료.\n\n\n특히 Parser / Filtering에서 계속 막혀\n3일 이상 \"조금만 더 하면 될 것 같은 상태\"가 반복되면:\n\n복잡한 workaround를 더 만들지 않는다.\n\n현재 상태를 기록하고 실험을 중단할 수 있게 한다.\n\n\n3일 초과는 단순 실패가 아니라 중요한 실험 결과다.\n\n\"외부 AI 코딩 도구의 비공개 session 포맷에 의존하는 제품의 유지보수 비용이 높다\"\n\n라는 evidence로 RESULT.md에 기록한다.\n\n\n==================================================\n33. 실행 순서\n==================================================\n\nSTEP 1\n\n현재 Claude Code session/transcript 구조 조사\n\n\nSTEP 2\n\n최근 200개 message 기준 Parser + Raw Message Filtering\n\n\nSTEP 3\n\nmessage_filter_samples.md 생성\n\n=== 강제 중단 ===\n\n사람이 직접 파일 검토\n\n\nSTEP 4\n\n필터 문제 수정\n\n\nSTEP 5\n\nSmoke Test 기준 stage별 token/cost 계산\n\n\nSTEP 6\n\n전체 이력 예상 비용 계산\n\nfull_run_cost_estimate.md 생성\n\n=== 강제 중단 ===\n\n사람이 비용 확인\n\n\nSTEP 7\n\n사용자의 명시적 full-run 명령 후\n전체 history IntentGuard Pipeline 실행\n\n\nSTEP 8\n\nBaseline 3회\n\n\nSTEP 9\n\nCandidate Retrieval + Semantic Merge\n\n\nSTEP 10\n\n4-way Blind Evaluation\n\n\nSTEP 11\n\nMANUAL_MISSING_REQUIREMENTS 입력\n\n\nSTEP 12\n\nHidden source 복원 + 시스템별 집계\n\n\nSTEP 13\n\nRESULT.md 생성\n\n\n==================================================\n34. 완료 조건\n==================================================\n\n다음까지만 되면 프로토타입 완료다.\n\n- 실제 Claude history parsing\n- user-role noise filtering\n- message_filter_samples.md\n- 전체 실행 비용 추산\n- 전체 history IntentGuard Contract\n- Baseline 3회\n- scalable semantic matching\n- 4-way blind evaluation\n- AMBIGUOUS quality 평가\n- MANUAL_MISSING_REQUIREMENTS\n- temporal recovery 분석\n- baseline stability\n- context limit 분석\n- API 비용\n- parsing maintenance risk\n- RESULT.md\n\n그 이상 구현하지 않는다.\n\n\n==================================================\n35. 대상 프로젝트 보호\n==================================================\n\n분석 대상 프로젝트는 READ ONLY다.\n\nIntentGuard prototype은:\n\n- 프로젝트 코드 수정 금지\n- Git commit 금지\n- 파일 삭제 금지\n- 설정 변경 금지\n\n분석용 파일은 별도 prototype 디렉터리에만 생성한다.\n\n\n==================================================\n36. 최종 개발 원칙\n==================================================\n\n이번 실험은:\n\n\"IntentGuard를 어떻게든 살려라\"\n\n가 아니다.\n\n반대로:\n\n\"이 아이디어가 필요 없는 이유를 최대한 공정하고 빨리 찾아라.\"\n\n이다.\n\nBaseline은 약하게 만들지 않는다.\n\nIntentGuard가 질 수 있는 실험을 설계한다.\n\n그 조건에서도 의미 있게 이길 때만 다음 단계로 넘어갈 가치가 있다.\n\n\n==================================================\n37. 지금 시작\n==================================================\n\n현재 OS와 Claude Code 설치환경을 조사한다.\n\nClaude Code의 실제 session/transcript 저장 구조를 확인한다.\n\n간단한 IMPLEMENTATION_PLAN.md를 만든다.\n\nSTEP 1 → STEP 2 → STEP 3까지만 수행한다.\n\nSTEP 3 완료 후 반드시 멈춘다.\n\nmessage_filter_samples.md를 사람이 확인하기 전에는\n그 이후 단계를 실행하지 않는다.",
+      "message_type": "HUMAN_CORRECTION",
+      "context_message_ids": [],
+      "confidence": 0.8,
+      "_reasons": [
+        "correction marker"
+      ],
+      "_route": "human",
+      "_origin_kind": "human",
+      "_prompt_source": "sdk",
+      "_raw_len": 17358,
+      "_clean_len": 17358,
+      "_block_types": [
+        "string"
+      ]
+    },
+    {
+      "id": "605783c6-d774-44ee-9dd9-1ec91a551ba0",
+      "session_id": "85bd9da2-2b86-5261-9c52-13526d468112",
+      "timestamp": "2026-09-07T14:53:29.741Z",
+      "text": "",
+      "message_type": "TOOL_OR_SYSTEM_CONTENT",
+      "context_message_ids": [],
+      "confidence": 0.99,
+      "_reasons": [
+        "tool_result record"
+      ],
+      "_route": "tool_result",
+      "_origin_kind": null,
+      "_prompt_source": null,
+      "_raw_len": 0,
+      "_clean_len": 0,
+      "_block_types": [
+        "tool_result"
+      ]
+    },
+    {
+      "id": "ec4987ed-2074-4ffc-8783-eb8f02aea454",
+      "session_id": "85bd9da2-2b86-5261-9c52-13526d468112",
+      "timestamp": "2026-09-07T14:53:31.104Z",
+      "text": "",
+      "message_type": "TOOL_OR_SYSTEM_CONTENT",
+      "context_message_ids": [],
+      "confidence": 0.99,
+      "_reasons": [
+        "tool_result record"
+      ],
+      "_route": "tool_result",
+      "_origin_kind": null,
+      "_prompt_source": null,
+      "_raw_len": 0,
+      "_clean_len": 0,
+      "_block_types": [
+        "tool_result"
+      ]
+    },
+    {
+      "id": "15a59468-37d0-4368-8da7-517371dea0dd",
+      "session_id": "85bd9da2-2b86-5261-9c52-13526d468112",
+      "timestamp": "2026-09-07T14:53:36.929Z",
+      "text": "",
+      "message_type": "TOOL_OR_SYSTEM_CONTENT",
+      "context_message_ids": [],
+      "confidence": 0.99,
+      "_reasons": [
+        "tool_result record"
+      ],
+      "_route": "tool_result",
+      "_origin_kind": null,
+      "_prompt_source": null,
+      "_raw_len": 0,
+      "_clean_len": 0,
+      "_block_types": [
+        "tool_result"
+      ]
+    },
+    {
+      "id": "646568fd-36a3-4c79-a663-9b133f5c3b7e",
+      "session_id": "85bd9da2-2b86-5261-9c52-13526d468112",
+      "timestamp": "2026-09-07T14:53:37.028Z",
+      "text": "",
+      "message_type": "TOOL_OR_SYSTEM_CONTENT",
+      "context_message_ids": [],
+      "confidence": 0.99,
+      "_reasons": [
+        "tool_result record"
+      ],
+      "_route": "tool_result",
+      "_origin_kind": null,
+      "_prompt_source": null,
+      "_raw_len": 0,
+      "_clean_len": 0,
+      "_block_types": [
+        "tool_result"
+      ]
+    },
+    {
+      "id": "f0f8788e-9b0a-45d7-8bf3-16c54325ba8b",
+      "session_id": "85bd9da2-2b86-5261-9c52-13526d468112",
+      "timestamp": "2026-09-07T14:53:46.680Z",
+      "text": "",
+      "message_type": "TOOL_OR_SYSTEM_CONTENT",
+      "context_message_ids": [],
+      "confidence": 0.99,
+      "_reasons": [
+        "tool_result record"
+      ],
+      "_route": "tool_result",
+      "_origin_kind": null,
+      "_prompt_source": null,
+      "_raw_len": 0,
+      "_clean_len": 0,
+      "_block_types": [
+        "tool_result"
+      ]
+    },
+    {
+      "id": "10638b4e-c6d0-42a8-946b-62471aa479eb",
+      "session_id": "85bd9da2-2b86-5261-9c52-13526d468112",
+      "timestamp": "2026-09-07T14:53:48.429Z",
+      "text": "",
+      "message_type": "TOOL_OR_SYSTEM_CONTENT",
+      "context_message_ids": [],
+      "confidence": 0.99,
+      "_reasons": [
+        "tool_result record"
+      ],
+      "_route": "tool_result",
+      "_origin_kind": null,
+      "_prompt_source": null,
+      "_raw_len": 0,
+      "_clean_len": 0,
+      "_block_types": [
+        "tool_result"
+      ]
+    },
+    {
+      "id": "f67296d8-40df-431e-8728-6bce3201e118",
+      "session_id": "85bd9da2-2b86-5261-9c52-13526d468112",
+      "timestamp": "2026-09-07T14:54:00.692Z",
+      "text": "",
+      "message_type": "TOOL_OR_SYSTEM_CONTENT",
+      "context_message_ids": [],
+      "confidence": 0.99,
+      "_reasons": [
+        "tool_result record"
+      ],
+      "_route": "tool_result",
+      "_origin_kind": null,
+      "_prompt_source": null,
+      "_raw_len": 0,
+      "_clean_len": 0,
+      "_block_types": [
+        "tool_result"
+      ]
+    },
+    {
+      "id": "70048368-24fe-474e-9a70-9d5fda0f23db",
+      "session_id": "85bd9da2-2b86-5261-9c52-13526d468112",
+      "timestamp": "2026-09-07T14:54:10.790Z",
+      "text": "",
+      "message_type": "TOOL_OR_SYSTEM_CONTENT",
+      "context_message_ids": [],
+      "confidence": 0.99,
+      "_reasons": [
+        "tool_result record"
+      ],
+      "_route": "tool_result",
+      "_origin_kind": null,
+      "_prompt_source": null,
+      "_raw_len": 0,
+      "_clean_len": 0,
+      "_block_types": [
+        "tool_result"
+      ]
+    },
+    {
+      "id": "aaf0c9a1-4dd3-4683-84d8-9fef4e98d278",
+      "session_id": "85bd9da2-2b86-5261-9c52-13526d468112",
+      "timestamp": "2026-09-07T14:55:00.097Z",
+      "text": "",
+      "message_type": "TOOL_OR_SYSTEM_CONTENT",
+      "context_message_ids": [],
+      "confidence": 0.99,
+      "_reasons": [
+        "tool_result record"
+      ],
+      "_route": "tool_result",
+      "_origin_kind": null,
+      "_prompt_source": null,
+      "_raw_len": 0,
+      "_clean_len": 0,
+      "_block_types": [
+        "tool_result"
+      ]
+    },
+    {
+      "id": "6908c52d-5e16-4928-8fdd-8ca0f84651b0",
+      "session_id": "85bd9da2-2b86-5261-9c52-13526d468112",
+      "timestamp": "2026-09-07T14:55:50.665Z",
+      "text": "",
+      "message_type": "TOOL_OR_SYSTEM_CONTENT",
+      "context_message_ids": [],
+      "confidence": 0.99,
+      "_reasons": [
+        "tool_result record"
+      ],
+      "_route": "tool_result",
+      "_origin_kind": null,
+      "_prompt_source": null,
+      "_raw_len": 0,
+      "_clean_len": 0,
+      "_block_types": [
+        "tool_result"
+      ]
+    },
+    {
+      "id": "d0122a10-b463-4f17-9e9e-2884fab011ad",
+      "session_id": "85bd9da2-2b86-5261-9c52-13526d468112",
+      "timestamp": "2026-09-07T14:56:09.831Z",
+      "text": "",
+      "message_type": "TOOL_OR_SYSTEM_CONTENT",
+      "context_message_ids": [],
+      "confidence": 0.99,
+      "_reasons": [
+        "tool_result record"
+      ],
+      "_route": "tool_result",
+      "_origin_kind": null,
+      "_prompt_source": null,
+      "_raw_len": 0,
+      "_clean_len": 0,
+      "_block_types": [
+        "tool_result"
+      ]
+    },
+    {
+      "id": "83dab890-8310-4e88-b95a-cb72ff3060e9",
+      "session_id": "85bd9da2-2b86-5261-9c52-13526d468112",
+      "timestamp": "2026-09-07T14:56:43.681Z",
+      "text": "",
+      "message_type": "TOOL_OR_SYSTEM_CONTENT",
+      "context_message_ids": [],
+      "confidence": 0.99,
+      "_reasons": [
+        "tool_result record"
+      ],
+      "_route": "tool_result",
+      "_origin_kind": null,
+      "_prompt_source": null,
+      "_raw_len": 0,
+      "_clean_len": 0,
+      "_block_types": [
+        "tool_result"
+      ]
+    },
+    {
+      "id": "67ac2681-17ea-42fc-8384-534b4bec4953",
+      "session_id": "85bd9da2-2b86-5261-9c52-13526d468112",
+      "timestamp": "2026-09-07T14:57:56.375Z",
+      "text": "",
+      "message_type": "TOOL_OR_SYSTEM_CONTENT",
+      "context_message_ids": [],
+      "confidence": 0.99,
+      "_reasons": [
+        "tool_result record"
+      ],
+      "_route": "tool_result",
+      "_origin_kind": null,
+      "_prompt_source": null,
+      "_raw_len": 0,
+      "_clean_len": 0,
+      "_block_types": [
+        "tool_result"
+      ]
+    },
+    {
+      "id": "61822564-ede4-4bdf-b9c0-3160f275ca59",
+      "session_id": "85bd9da2-2b86-5261-9c52-13526d468112",
+      "timestamp": "2026-09-07T14:58:11.729Z",
+      "text": "",
+      "message_type": "TOOL_OR_SYSTEM_CONTENT",
+      "context_message_ids": [],
+      "confidence": 0.99,
+      "_reasons": [
+        "tool_result record"
+      ],
+      "_route": "tool_result",
+      "_origin_kind": null,
+      "_prompt_source": null,
+      "_raw_len": 0,
+      "_clean_len": 0,
+      "_block_types": [
+        "tool_result"
+      ]
+    },
+    {
+      "id": "f354f230-2b33-46df-b287-a51b608250ae",
+      "session_id": "85bd9da2-2b86-5261-9c52-13526d468112",
+      "timestamp": "2026-09-07T14:58:21.022Z",
+      "text": "",
+      "message_type": "TOOL_OR_SYSTEM_CONTENT",
+      "context_message_ids": [],
+      "confidence": 0.99,
+      "_reasons": [
+        "tool_result record"
+      ],
+      "_route": "tool_result",
+      "_origin_kind": null,
+      "_prompt_source": null,
+      "_raw_len": 0,
+      "_clean_len": 0,
+      "_block_types": [
+        "tool_result"
+      ]
+    },
+    {
+      "id": "4e1091a4-ac9e-4f1a-8aa0-7457a78d16ec",
+      "session_id": "85bd9da2-2b86-5261-9c52-13526d468112",
+      "timestamp": "2026-09-07T14:59:53.573Z",
+      "text": "",
+      "message_type": "TOOL_OR_SYSTEM_CONTENT",
+      "context_message_ids": [],
+      "confidence": 0.99,
+      "_reasons": [
+        "tool_result record"
+      ],
+      "_route": "tool_result",
+      "_origin_kind": null,
+      "_prompt_source": null,
+      "_raw_len": 0,
+      "_clean_len": 0,
+      "_block_types": [
+        "tool_result"
+      ]
+    },
+    {
+      "id": "2d950f40-5812-40f3-b6d3-c4f7c90c1456",
+      "session_id": "85bd9da2-2b86-5261-9c52-13526d468112",
+      "timestamp": "2026-09-07T14:59:59.645Z",
+      "text": "",
+      "message_type": "TOOL_OR_SYSTEM_CONTENT",
+      "context_message_ids": [],
+      "confidence": 0.99,
+      "_reasons": [
+        "tool_result record"
+      ],
+      "_route": "tool_result",
+      "_origin_kind": null,
+      "_prompt_source": null,
+      "_raw_len": 0,
+      "_clean_len": 0,
+      "_block_types": [
+        "tool_result"
+      ]
+    },
+    {
+      "id": "9ca09aea-7e89-4f73-8da1-bd728ebf4276",
+      "session_id": "85bd9da2-2b86-5261-9c52-13526d468112",
+      "timestamp": "2026-09-07T15:00:09.089Z",
+      "text": "",
+      "message_type": "TOOL_OR_SYSTEM_CONTENT",
+      "context_message_ids": [],
+      "confidence": 0.99,
+      "_reasons": [
+        "tool_result record"
+      ],
+      "_route": "tool_result",
+      "_origin_kind": null,
+      "_prompt_source": null,
+      "_raw_len": 0,
+      "_clean_len": 0,
+      "_block_types": [
+        "tool_result"
+      ]
+    },
+    {
+      "id": "d2919094-262e-4ef6-b614-2ab068b2e852",
+      "session_id": "85bd9da2-2b86-5261-9c52-13526d468112",
+      "timestamp": "2026-09-07T15:01:01.341Z",
+      "text": "",
+      "message_type": "TOOL_OR_SYSTEM_CONTENT",
+      "context_message_ids": [],
+      "confidence": 0.99,
+      "_reasons": [
+        "tool_result record"
+      ],
+      "_route": "tool_result",
+      "_origin_kind": null,
+      "_prompt_source": null,
+      "_raw_len": 0,
+      "_clean_len": 0,
+      "_block_types": [
+        "tool_result"
+      ]
+    },
+    {
+      "id": "92e782f9-2795-4780-91d9-bad0e09a6ba3",
+      "session_id": "85bd9da2-2b86-5261-9c52-13526d468112",
+      "timestamp": "2026-09-07T15:01:07.734Z",
+      "text": "",
+      "message_type": "TOOL_OR_SYSTEM_CONTENT",
+      "context_message_ids": [],
+      "confidence": 0.99,
+      "_reasons": [
+        "tool_result record"
+      ],
+      "_route": "tool_result",
+      "_origin_kind": null,
+      "_prompt_source": null,
+      "_raw_len": 0,
+      "_clean_len": 0,
+      "_block_types": [
+        "tool_result"
+      ]
+    },
+    {
+      "id": "7049795c-9441-47b9-8ee8-9facb197ea10",
+      "session_id": "85bd9da2-2b86-5261-9c52-13526d468112",
+      "timestamp": "2026-09-07T15:02:02.132Z",
+      "text": "",
+      "message_type": "TOOL_OR_SYSTEM_CONTENT",
+      "context_message_ids": [],
+      "confidence": 0.99,
+      "_reasons": [
+        "tool_result record"
+      ],
+      "_route": "tool_result",
+      "_origin_kind": null,
+      "_prompt_source": null,
+      "_raw_len": 0,
+      "_clean_len": 0,
+      "_block_types": [
+        "tool_result"
+      ]
+    },
+    {
+      "id": "f12877a9-ec94-48a2-9a1b-1fffe10b55db",
+      "session_id": "85bd9da2-2b86-5261-9c52-13526d468112",
+      "timestamp": "2026-09-07T15:02:48.773Z",
+      "text": "",
+      "message_type": "TOOL_OR_SYSTEM_CONTENT",
+      "context_message_ids": [],
+      "confidence": 0.99,
+      "_reasons": [
+        "tool_result record"
+      ],
+      "_route": "tool_result",
+      "_origin_kind": null,
+      "_prompt_source": null,
+      "_raw_len": 0,
+      "_clean_len": 0,
+      "_block_types": [
+        "tool_result"
+      ]
+    },
+    {
+      "id": "42c6bf75-6d05-417d-9e95-001024327a51",
+      "session_id": "85bd9da2-2b86-5261-9c52-13526d468112",
+      "timestamp": "2026-09-07T15:02:56.226Z",
+      "text": "",
+      "message_type": "TOOL_OR_SYSTEM_CONTENT",
+      "context_message_ids": [],
+      "confidence": 0.99,
+      "_reasons": [
+        "tool_result record"
+      ],
+      "_route": "tool_result",
+      "_origin_kind": null,
+      "_prompt_source": null,
+      "_raw_len": 0,
+      "_clean_len": 0,
+      "_block_types": [
+        "tool_result"
+      ]
+    }
+  ]
+}

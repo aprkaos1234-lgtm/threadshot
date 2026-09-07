@@ -1,0 +1,14 @@
+{
+  "name": "intentguard-validation-prototype",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Falsification harness for the IntentGuard hypothesis. Not a product.",
+  "scripts": {
+    "analyze": "node src/analyze.js",
+    "projects": "node src/analyze.js --list-projects",
+    "test": "node test.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

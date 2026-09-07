@@ -1,0 +1,915 @@
+{
+  "meta": {
+    "project": "/home/user/demo-app",
+    "sessionCount": 3,
+    "scope": "전체 이력",
+    "adequacy": {
+      "spanDays": 79.1,
+      "warnings": [
+        "사람 메시지가 24개뿐이다. 필터 품질을 통계적으로 평가할 수 없다.",
+        "intent-bearing 메시지가 16개뿐이다. Requirement 복구 성능을 비교할 대상이 없다."
+      ]
+    }
+  },
+  "diagnostics": {
+    "files": 3,
+    "linesRead": 62,
+    "parseFailures": 0,
+    "parseFailureSamples": [],
+    "duplicateUuids": 1,
+    "recordTypes": {
+      "attachment": 4,
+      "user": 43,
+      "assistant": 15
+    },
+    "unknownRecordTypes": {},
+    "attachmentTypes": {
+      "skill_listing": 2,
+      "date": 1,
+      "environment": 1
+    },
+    "userContentShapes": {
+      "string": 28,
+      "tool_result": 15
+    },
+    "unknownContentBlocks": {},
+    "missingTimestamp": 0,
+    "sidechainEntries": 1,
+    "humanSignalCoverage": {
+      "origin": 18,
+      "promptSource": 18,
+      "permissionMode": 18
+    },
+    "versions": {
+      "2.0.31": 20,
+      "2.1.263": 20,
+      "1.0.88": 22
+    },
+    "entrypoints": {
+      "cli": 42,
+      "remote_mobile": 20
+    }
+  },
+  "messages": [
+    {
+      "id": "370a9cbf-b396-49e3-bbdb-dcfe11dcfbf9",
+      "session_id": "7e42d22f-d3e1-4009-9d9e-0d146da4b627",
+      "timestamp": "2026-03-02T09:00:00.000Z",
+      "text": "구글 트렌드에서 한국 인기 검색어를 가져와서 쇼핑 상품형 키워드만 골라주는 웹앱을 만들어줘",
+      "message_type": "HUMAN_INTENT",
+      "context_message_ids": [],
+      "confidence": 0.8,
+      "_reasons": [
+        "requirement/imperative marker"
+      ],
+      "_route": "human",
+      "_origin_kind": null,
+      "_prompt_source": null,
+      "_raw_len": 50,
+      "_clean_len": 50,
+      "_block_types": [
+        "string"
+      ]
+    },
+    {
+      "id": "45c95ca3-01f9-4866-a388-3534b3564b74",
+      "session_id": "7e42d22f-d3e1-4009-9d9e-0d146da4b627",
+      "timestamp": "2026-03-02T09:00:00.000Z",
+      "text": "",
+      "message_type": "TOOL_OR_SYSTEM_CONTENT",
+      "context_message_ids": [],
+      "confidence": 0.99,
+      "_reasons": [
+        "tool_result record"
+      ],
+      "_route": "tool_result",
+      "_origin_kind": null,
+      "_prompt_source": null,
+      "_raw_len": 0,
+      "_clean_len": 0,
+      "_block_types": [
+        "tool_result"
+      ]
+    },
+    {
+      "id": "b99ecd82-2552-463f-990e-aa4c9e381484",
+      "session_id": "7e42d22f-d3e1-4009-9d9e-0d146da4b627",
+      "timestamp": "2026-03-02T09:45:00.000Z",
+      "text": "무료 사용자는 월 3회만 분석할 수 있게 제한해",
+      "message_type": "HUMAN_INTENT",
+      "context_message_ids": [],
+      "confidence": 0.8,
+      "_reasons": [
+        "requirement/imperative marker"
+      ],
+      "_route": "human",
+      "_origin_kind": null,
+      "_prompt_source": null,
+      "_raw_len": 26,
+      "_clean_len": 26,
+      "_block_types": [
+        "string"
+      ]
+    },
+    {
+      "id": "4b2dacbf-0be9-4020-ad58-0b3a6f9fe7ad",
+      "session_id": "7e42d22f-d3e1-4009-9d9e-0d146da4b627",
+      "timestamp": "2026-03-02T09:45:00.000Z",
+      "text": "",
+      "message_type": "TOOL_OR_SYSTEM_CONTENT",
+      "context_message_ids": [],
+      "confidence": 0.99,
+      "_reasons": [
+        "tool_result record"
+      ],
+      "_route": "tool_result",
+      "_origin_kind": null,
+      "_prompt_source": null,
+      "_raw_len": 0,
+      "_clean_len": 0,
+      "_block_types": [
+        "tool_result"
+      ]
+    },
+    {
+      "id": "1674085a-9eb1-44c5-aacc-90d0acc49e69",
+      "session_id": "7e42d22f-d3e1-4009-9d9e-0d146da4b627",
+      "timestamp": "2026-03-02T10:05:00.000Z",
+      "text": "결과 카드에 쿠팡 검색 링크를 같이 넣어줘",
+      "message_type": "HUMAN_INTENT",
+      "context_message_ids": [],
+      "confidence": 0.8,
+      "_reasons": [
+        "requirement/imperative marker"
+      ],
+      "_route": "human",
+      "_origin_kind": null,
+      "_prompt_source": null,
+      "_raw_len": 23,
+      "_clean_len": 23,
+      "_block_types": [
+        "string"
+      ]
+    },
+    {
+      "id": "0c07058b-b86a-43a5-92e5-17af23a72311",
+      "session_id": "7e42d22f-d3e1-4009-9d9e-0d146da4b627",
+      "timestamp": "2026-03-02T10:05:00.000Z",
+      "text": "",
+      "message_type": "TOOL_OR_SYSTEM_CONTENT",
+      "context_message_ids": [],
+      "confidence": 0.99,
+      "_reasons": [
+        "tool_result record"
+      ],
+      "_route": "tool_result",
+      "_origin_kind": null,
+      "_prompt_source": null,
+      "_raw_len": 0,
+      "_clean_len": 0,
+      "_block_types": [
+        "tool_result"
+      ]
+    },
+    {
+      "id": "d977a873-6b8c-4ca9-aaef-d669e4489ff1",
+      "session_id": "7e42d22f-d3e1-4009-9d9e-0d146da4b627",
+      "timestamp": "2026-03-02T10:08:00.000Z",
+      "text": "ㅇㅇ",
+      "message_type": "HUMAN_CONFIRMATION",
+      "context_message_ids": [
+        "b99ecd82-2552-463f-990e-aa4c9e381484",
+        "1674085a-9eb1-44c5-aacc-90d0acc49e69"
+      ],
+      "confidence": 0.8,
+      "_reasons": [
+        "short affirmative — must be read against prior context"
+      ],
+      "_route": "human",
+      "_origin_kind": null,
+      "_prompt_source": null,
+      "_raw_len": 2,
+      "_clean_len": 2,
+      "_block_types": [
+        "string"
+      ]
+    },
+    {
+      "id": "fe760999-7b5d-49c2-9a43-098b0f30c2f1",
+      "session_id": "7e42d22f-d3e1-4009-9d9e-0d146da4b627",
+      "timestamp": "2026-03-02T11:08:00.000Z",
+      "text": "로그인은 일단 이메일만 지원하자",
+      "message_type": "HUMAN_INTENT",
+      "context_message_ids": [],
+      "confidence": 0.8,
+      "_reasons": [
+        "requirement/imperative marker"
+      ],
+      "_route": "human",
+      "_origin_kind": null,
+      "_prompt_source": null,
+      "_raw_len": 17,
+      "_clean_len": 17,
+      "_block_types": [
+        "string"
+      ]
+    },
+    {
+      "id": "166ba2eb-f907-488f-9992-9ca5c4b23312",
+      "session_id": "7e42d22f-d3e1-4009-9d9e-0d146da4b627",
+      "timestamp": "2026-03-02T11:08:00.000Z",
+      "text": "",
+      "message_type": "TOOL_OR_SYSTEM_CONTENT",
+      "context_message_ids": [],
+      "confidence": 0.99,
+      "_reasons": [
+        "tool_result record"
+      ],
+      "_route": "tool_result",
+      "_origin_kind": null,
+      "_prompt_source": null,
+      "_raw_len": 0,
+      "_clean_len": 0,
+      "_block_types": [
+        "tool_result"
+      ]
+    },
+    {
+      "id": "c569acbb-af5b-44c9-a5d8-d9b9f39f513f",
+      "session_id": "7e42d22f-d3e1-4009-9d9e-0d146da4b627",
+      "timestamp": "2026-03-02T11:38:00.000Z",
+      "text": "그리고 분석 결과를 공유할 수 있는 링크 생성 기능도 추가해줘",
+      "message_type": "HUMAN_INTENT",
+      "context_message_ids": [],
+      "confidence": 0.8,
+      "_reasons": [
+        "requirement/imperative marker"
+      ],
+      "_route": "human",
+      "_origin_kind": null,
+      "_prompt_source": null,
+      "_raw_len": 34,
+      "_clean_len": 34,
+      "_block_types": [
+        "string"
+      ]
+    },
+    {
+      "id": "83464ab6-c9e9-487c-ae8f-620b32a173f1",
+      "session_id": "7e42d22f-d3e1-4009-9d9e-0d146da4b627",
+      "timestamp": "2026-03-02T11:38:00.000Z",
+      "text": "",
+      "message_type": "TOOL_OR_SYSTEM_CONTENT",
+      "context_message_ids": [],
+      "confidence": 0.99,
+      "_reasons": [
+        "tool_result record"
+      ],
+      "_route": "tool_result",
+      "_origin_kind": null,
+      "_prompt_source": null,
+      "_raw_len": 0,
+      "_clean_len": 0,
+      "_block_types": [
+        "tool_result"
+      ]
+    },
+    {
+      "id": "9a20cc14-ce60-4570-ad38-90ef018920b0",
+      "session_id": "7e42d22f-d3e1-4009-9d9e-0d146da4b627",
+      "timestamp": "2026-03-02T11:40:00.000Z",
+      "text": "계속",
+      "message_type": "LOW_INFORMATION",
+      "context_message_ids": [
+        "fe760999-7b5d-49c2-9a43-098b0f30c2f1",
+        "c569acbb-af5b-44c9-a5d8-d9b9f39f513f"
+      ],
+      "confidence": 0.85,
+      "_reasons": [
+        "continuation / filler"
+      ],
+      "_route": "human",
+      "_origin_kind": null,
+      "_prompt_source": null,
+      "_raw_len": 2,
+      "_clean_len": 2,
+      "_block_types": [
+        "string"
+      ]
+    },
+    {
+      "id": "8f63c10d-7023-4ee5-8f77-e44a4dbe1124",
+      "session_id": "7e42d22f-d3e1-4009-9d9e-0d146da4b627",
+      "timestamp": "2026-03-02T11:55:00.000Z",
+      "text": "Traceback (most recent call last):\n  File \"server/trends.py\", line 42, in fetch\n    resp = requests.get(url, timeout=5)\n  File \"/usr/lib/python3/requests/api.py\", line 73, in get\n    return request(\"get\", url, **kwargs)\nrequests.exceptions.ConnectionError: HTTPSConnectionPool(host='trends.google.com', port=443): Max retries exceeded",
+      "message_type": "ERROR_LOG",
+      "context_message_ids": [],
+      "confidence": 0.85,
+      "_reasons": [
+        "stack trace / error output shape"
+      ],
+      "_route": "human",
+      "_origin_kind": null,
+      "_prompt_source": null,
+      "_raw_len": 334,
+      "_clean_len": 334,
+      "_block_types": [
+        "string"
+      ]
+    },
+    {
+      "id": "1e337b0a-4caf-430b-8923-72ff32f52b0b",
+      "session_id": "7e42d22f-d3e1-4009-9d9e-0d146da4b627",
+      "timestamp": "2026-03-02T12:00:00.000Z",
+      "text": "타임아웃 늘리고 재시도 3번 하게 해줘",
+      "message_type": "HUMAN_INTENT",
+      "context_message_ids": [],
+      "confidence": 0.8,
+      "_reasons": [
+        "requirement/imperative marker"
+      ],
+      "_route": "human",
+      "_origin_kind": null,
+      "_prompt_source": null,
+      "_raw_len": 21,
+      "_clean_len": 21,
+      "_block_types": [
+        "string"
+      ]
+    },
+    {
+      "id": "18beea84-c567-438b-af68-fc64465718a5",
+      "session_id": "7e42d22f-d3e1-4009-9d9e-0d146da4b627",
+      "timestamp": "2026-03-02T12:00:00.000Z",
+      "text": "",
+      "message_type": "TOOL_OR_SYSTEM_CONTENT",
+      "context_message_ids": [],
+      "confidence": 0.99,
+      "_reasons": [
+        "tool_result record"
+      ],
+      "_route": "tool_result",
+      "_origin_kind": null,
+      "_prompt_source": null,
+      "_raw_len": 0,
+      "_clean_len": 0,
+      "_block_types": [
+        "tool_result"
+      ]
+    },
+    {
+      "id": "8bfd0d1d-29f8-49e7-8a69-4b91fa14e89d",
+      "session_id": "4345b0a7-6648-4c5a-b40a-3a04cf92ad53",
+      "timestamp": "2026-04-11T10:00:00.000Z",
+      "text": "테스트하는 동안에는 월 3회 제한 풀어줘. 계속 걸려서 확인이 안 돼",
+      "message_type": "HUMAN_INTENT",
+      "context_message_ids": [],
+      "confidence": 0.8,
+      "_reasons": [
+        "requirement/imperative marker"
+      ],
+      "_route": "human",
+      "_origin_kind": "human",
+      "_prompt_source": "cli",
+      "_raw_len": 38,
+      "_clean_len": 38,
+      "_block_types": [
+        "string"
+      ]
+    },
+    {
+      "id": "b36e705a-070b-4e24-bd94-c5f0459f1513",
+      "session_id": "4345b0a7-6648-4c5a-b40a-3a04cf92ad53",
+      "timestamp": "2026-04-11T10:00:00.000Z",
+      "text": "",
+      "message_type": "TOOL_OR_SYSTEM_CONTENT",
+      "context_message_ids": [],
+      "confidence": 0.99,
+      "_reasons": [
+        "tool_result record"
+      ],
+      "_route": "tool_result",
+      "_origin_kind": null,
+      "_prompt_source": null,
+      "_raw_len": 0,
+      "_clean_len": 0,
+      "_block_types": [
+        "tool_result"
+      ]
+    },
+    {
+      "id": "a4e28707-56c3-4644-9f87-1fe7846dced3",
+      "session_id": "4345b0a7-6648-4c5a-b40a-3a04cf92ad53",
+      "timestamp": "2026-04-11T10:05:00.000Z",
+      "text": "/clear",
+      "message_type": "TOOL_OR_SYSTEM_CONTENT",
+      "context_message_ids": [],
+      "confidence": 0.9,
+      "_reasons": [
+        "system/slash/wake envelope: ^\\/[A-Za-z0-9_:-]+\\s*$"
+      ],
+      "_route": "human",
+      "_origin_kind": "human",
+      "_prompt_source": "cli",
+      "_raw_len": 106,
+      "_clean_len": 6,
+      "_block_types": [
+        "string"
+      ]
+    },
+    {
+      "id": "e7ded08a-e286-47e6-9642-c054b6dea693",
+      "session_id": "4345b0a7-6648-4c5a-b40a-3a04cf92ad53",
+      "timestamp": "2026-04-11T10:45:00.000Z",
+      "text": "아까 만든 공유 링크 기능은 빼자. 스팸 신고가 들어올 것 같아",
+      "message_type": "HUMAN_CORRECTION",
+      "context_message_ids": [],
+      "confidence": 0.8,
+      "_reasons": [
+        "correction marker"
+      ],
+      "_route": "human",
+      "_origin_kind": "human",
+      "_prompt_source": "cli",
+      "_raw_len": 35,
+      "_clean_len": 35,
+      "_block_types": [
+        "string"
+      ]
+    },
+    {
+      "id": "a4aa271c-e9a0-43cb-99b7-91871feb681a",
+      "session_id": "4345b0a7-6648-4c5a-b40a-3a04cf92ad53",
+      "timestamp": "2026-04-11T10:45:00.000Z",
+      "text": "",
+      "message_type": "TOOL_OR_SYSTEM_CONTENT",
+      "context_message_ids": [],
+      "confidence": 0.99,
+      "_reasons": [
+        "tool_result record"
+      ],
+      "_route": "tool_result",
+      "_origin_kind": null,
+      "_prompt_source": null,
+      "_raw_len": 0,
+      "_clean_len": 0,
+      "_block_types": [
+        "tool_result"
+      ]
+    },
+    {
+      "id": "af9d1cb6-ab35-40cc-9ac1-3e57cdabfac2",
+      "session_id": "4345b0a7-6648-4c5a-b40a-3a04cf92ad53",
+      "timestamp": "2026-04-11T10:47:00.000Z",
+      "text": "ㅇㅋ",
+      "message_type": "HUMAN_CONFIRMATION",
+      "context_message_ids": [
+        "8bfd0d1d-29f8-49e7-8a69-4b91fa14e89d",
+        "e7ded08a-e286-47e6-9642-c054b6dea693"
+      ],
+      "confidence": 0.8,
+      "_reasons": [
+        "short affirmative — must be read against prior context"
+      ],
+      "_route": "human",
+      "_origin_kind": "human",
+      "_prompt_source": "cli",
+      "_raw_len": 2,
+      "_clean_len": 2,
+      "_block_types": [
+        "string"
+      ]
+    },
+    {
+      "id": "8d607915-4ba4-4441-87d2-008f786c8b9d",
+      "session_id": "4345b0a7-6648-4c5a-b40a-3a04cf92ad53",
+      "timestamp": "2026-04-11T10:47:00.000Z",
+      "text": "",
+      "message_type": "TOOL_OR_SYSTEM_CONTENT",
+      "context_message_ids": [],
+      "confidence": 0.95,
+      "_reasons": [
+        "isSidechain=true (sub-agent)"
+      ],
+      "_route": "sidechain",
+      "_origin_kind": null,
+      "_prompt_source": null,
+      "_raw_len": 73,
+      "_clean_len": 0,
+      "_block_types": [
+        "string"
+      ]
+    },
+    {
+      "id": "682ff4b2-6548-46df-996d-205ea8989db9",
+      "session_id": "4345b0a7-6648-4c5a-b40a-3a04cf92ad53",
+      "timestamp": "2026-04-11T11:12:00.000Z",
+      "text": "이거 왜 안 되지?\nexport async function GET() {\n  const res = await fetch(TRENDS_URL, { next: { revalidate: 0 } });\n  const xml = await res.text();\n  const items = parseRss(xml);\n  return Response.json({ items });\n}",
+      "message_type": "HUMAN_CONTEXT",
+      "context_message_ids": [],
+      "confidence": 0.7,
+      "_reasons": [
+        "question shape — not an active requirement on its own"
+      ],
+      "_route": "human",
+      "_origin_kind": "human",
+      "_prompt_source": "cli",
+      "_raw_len": 209,
+      "_clean_len": 208,
+      "_block_types": [
+        "string"
+      ]
+    },
+    {
+      "id": "1fe0b9cc-c5e8-4549-9695-658e7b3a9901",
+      "session_id": "4345b0a7-6648-4c5a-b40a-3a04cf92ad53",
+      "timestamp": "2026-04-11T11:12:00.000Z",
+      "text": "",
+      "message_type": "TOOL_OR_SYSTEM_CONTENT",
+      "context_message_ids": [],
+      "confidence": 0.99,
+      "_reasons": [
+        "tool_result record"
+      ],
+      "_route": "tool_result",
+      "_origin_kind": null,
+      "_prompt_source": null,
+      "_raw_len": 0,
+      "_clean_len": 0,
+      "_block_types": [
+        "tool_result"
+      ]
+    },
+    {
+      "id": "97a6de14-4f99-42a3-98fe-aa1e4f6f7d67",
+      "session_id": "4345b0a7-6648-4c5a-b40a-3a04cf92ad53",
+      "timestamp": "2026-04-11T11:13:00.000Z",
+      "text": "음",
+      "message_type": "LOW_INFORMATION",
+      "context_message_ids": [
+        "af9d1cb6-ab35-40cc-9ac1-3e57cdabfac2",
+        "682ff4b2-6548-46df-996d-205ea8989db9"
+      ],
+      "confidence": 0.85,
+      "_reasons": [
+        "continuation / filler"
+      ],
+      "_route": "human",
+      "_origin_kind": "human",
+      "_prompt_source": "cli",
+      "_raw_len": 1,
+      "_clean_len": 1,
+      "_block_types": [
+        "string"
+      ]
+    },
+    {
+      "id": "998504bf-8979-408c-b9f5-5d298564fd17",
+      "session_id": "4345b0a7-6648-4c5a-b40a-3a04cf92ad53",
+      "timestamp": "2026-04-11T11:43:00.000Z",
+      "text": "상단에 마지막 업데이트 시간 표시해줘",
+      "message_type": "HUMAN_INTENT",
+      "context_message_ids": [],
+      "confidence": 0.8,
+      "_reasons": [
+        "requirement/imperative marker"
+      ],
+      "_route": "human",
+      "_origin_kind": "human",
+      "_prompt_source": "cli",
+      "_raw_len": 20,
+      "_clean_len": 20,
+      "_block_types": [
+        "string"
+      ]
+    },
+    {
+      "id": "556b927f-fb40-4c24-bb57-a0ef3bf7bea8",
+      "session_id": "4345b0a7-6648-4c5a-b40a-3a04cf92ad53",
+      "timestamp": "2026-04-11T11:43:00.000Z",
+      "text": "",
+      "message_type": "TOOL_OR_SYSTEM_CONTENT",
+      "context_message_ids": [],
+      "confidence": 0.99,
+      "_reasons": [
+        "tool_result record"
+      ],
+      "_route": "tool_result",
+      "_origin_kind": null,
+      "_prompt_source": null,
+      "_raw_len": 0,
+      "_clean_len": 0,
+      "_block_types": [
+        "tool_result"
+      ]
+    },
+    {
+      "id": "3733ba3c-5f9e-4443-84c7-a7e73ae69e21",
+      "session_id": "1bbf0f4f-0c1b-47fa-9a58-1275d76ced4b",
+      "timestamp": "2026-05-20T08:30:00.000Z",
+      "text": "출시 준비하자. 무료 사용자 제한 다시 월 3회로 되돌려줘",
+      "message_type": "HUMAN_CORRECTION",
+      "context_message_ids": [],
+      "confidence": 0.8,
+      "_reasons": [
+        "correction marker"
+      ],
+      "_route": "human",
+      "_origin_kind": "human",
+      "_prompt_source": "cli",
+      "_raw_len": 32,
+      "_clean_len": 32,
+      "_block_types": [
+        "string"
+      ]
+    },
+    {
+      "id": "7922e76f-2699-44e0-bc83-5d3700a7b3bf",
+      "session_id": "1bbf0f4f-0c1b-47fa-9a58-1275d76ced4b",
+      "timestamp": "2026-05-20T08:30:00.000Z",
+      "text": "",
+      "message_type": "TOOL_OR_SYSTEM_CONTENT",
+      "context_message_ids": [],
+      "confidence": 0.99,
+      "_reasons": [
+        "tool_result record"
+      ],
+      "_route": "tool_result",
+      "_origin_kind": null,
+      "_prompt_source": null,
+      "_raw_len": 0,
+      "_clean_len": 0,
+      "_block_types": [
+        "tool_result"
+      ]
+    },
+    {
+      "id": "3924371c-1d42-4808-96b6-c5dcc7a31267",
+      "session_id": "1bbf0f4f-0c1b-47fa-9a58-1275d76ced4b",
+      "timestamp": "2026-05-20T08:45:00.000Z",
+      "text": "아니 3회 말고 5회로 하자. 초반엔 좀 넉넉하게 주는 게 나을 것 같아",
+      "message_type": "HUMAN_CORRECTION",
+      "context_message_ids": [],
+      "confidence": 0.8,
+      "_reasons": [
+        "correction marker"
+      ],
+      "_route": "human",
+      "_origin_kind": "human",
+      "_prompt_source": "cli",
+      "_raw_len": 40,
+      "_clean_len": 40,
+      "_block_types": [
+        "string"
+      ]
+    },
+    {
+      "id": "b9c5c567-5555-4ce6-8aa6-1623329b632d",
+      "session_id": "1bbf0f4f-0c1b-47fa-9a58-1275d76ced4b",
+      "timestamp": "2026-05-20T08:45:00.000Z",
+      "text": "",
+      "message_type": "TOOL_OR_SYSTEM_CONTENT",
+      "context_message_ids": [],
+      "confidence": 0.99,
+      "_reasons": [
+        "tool_result record"
+      ],
+      "_route": "tool_result",
+      "_origin_kind": null,
+      "_prompt_source": null,
+      "_raw_len": 0,
+      "_clean_len": 0,
+      "_block_types": [
+        "tool_result"
+      ]
+    },
+    {
+      "id": "213e8226-a9f9-4b57-b5e1-c6268be88ff4",
+      "session_id": "1bbf0f4f-0c1b-47fa-9a58-1275d76ced4b",
+      "timestamp": "2026-05-20T08:47:00.000Z",
+      "text": "네",
+      "message_type": "HUMAN_CONFIRMATION",
+      "context_message_ids": [
+        "3733ba3c-5f9e-4443-84c7-a7e73ae69e21",
+        "3924371c-1d42-4808-96b6-c5dcc7a31267"
+      ],
+      "confidence": 0.8,
+      "_reasons": [
+        "short affirmative — must be read against prior context"
+      ],
+      "_route": "human",
+      "_origin_kind": "human",
+      "_prompt_source": "cli",
+      "_raw_len": 1,
+      "_clean_len": 1,
+      "_block_types": [
+        "string"
+      ]
+    },
+    {
+      "id": "b68696ac-c94e-4da8-960b-927a824b0ce5",
+      "session_id": "1bbf0f4f-0c1b-47fa-9a58-1275d76ced4b",
+      "timestamp": "2026-05-20T09:37:00.000Z",
+      "text": "한국시간 오전 6시를 하루 갱신 기준으로 써줘",
+      "message_type": "HUMAN_INTENT",
+      "context_message_ids": [],
+      "confidence": 0.8,
+      "_reasons": [
+        "requirement/imperative marker"
+      ],
+      "_route": "human",
+      "_origin_kind": "human",
+      "_prompt_source": "cli",
+      "_raw_len": 25,
+      "_clean_len": 25,
+      "_block_types": [
+        "string"
+      ]
+    },
+    {
+      "id": "fadd2aeb-d3ff-4651-895f-324c0d7c024b",
+      "session_id": "1bbf0f4f-0c1b-47fa-9a58-1275d76ced4b",
+      "timestamp": "2026-05-20T09:37:00.000Z",
+      "text": "",
+      "message_type": "TOOL_OR_SYSTEM_CONTENT",
+      "context_message_ids": [],
+      "confidence": 0.99,
+      "_reasons": [
+        "tool_result record"
+      ],
+      "_route": "tool_result",
+      "_origin_kind": null,
+      "_prompt_source": null,
+      "_raw_len": 0,
+      "_clean_len": 0,
+      "_block_types": [
+        "tool_result"
+      ]
+    },
+    {
+      "id": "bc9cdf4d-478f-40e3-9256-e688dfb21ab9",
+      "session_id": "1bbf0f4f-0c1b-47fa-9a58-1275d76ced4b",
+      "timestamp": "2026-05-20T09:57:00.000Z",
+      "text": "앱 켜둔 상태면 10분마다 날짜 경계 확인해서 자동 갱신하게",
+      "message_type": "HUMAN_INTENT",
+      "context_message_ids": [],
+      "confidence": 0.8,
+      "_reasons": [
+        "requirement/imperative marker"
+      ],
+      "_route": "human",
+      "_origin_kind": "human",
+      "_prompt_source": "cli",
+      "_raw_len": 33,
+      "_clean_len": 33,
+      "_block_types": [
+        "string"
+      ]
+    },
+    {
+      "id": "9510a007-0aab-46a4-a8e4-61bfa535ca0c",
+      "session_id": "1bbf0f4f-0c1b-47fa-9a58-1275d76ced4b",
+      "timestamp": "2026-05-20T09:57:00.000Z",
+      "text": "",
+      "message_type": "TOOL_OR_SYSTEM_CONTENT",
+      "context_message_ids": [],
+      "confidence": 0.99,
+      "_reasons": [
+        "tool_result record"
+      ],
+      "_route": "tool_result",
+      "_origin_kind": null,
+      "_prompt_source": null,
+      "_raw_len": 0,
+      "_clean_len": 0,
+      "_block_types": [
+        "tool_result"
+      ]
+    },
+    {
+      "id": "d8790d2d-b952-491e-b3de-c675b45f2352",
+      "session_id": "1bbf0f4f-0c1b-47fa-9a58-1275d76ced4b",
+      "timestamp": "2026-05-20T10:32:00.000Z",
+      "text": "팀 기능도 나중에 만들까?",
+      "message_type": "HUMAN_CONTEXT",
+      "context_message_ids": [],
+      "confidence": 0.7,
+      "_reasons": [
+        "short message, no vocabulary hit",
+        "question shape — not an active requirement on its own"
+      ],
+      "_route": "human",
+      "_origin_kind": "human",
+      "_prompt_source": "cli",
+      "_raw_len": 14,
+      "_clean_len": 14,
+      "_block_types": [
+        "string"
+      ]
+    },
+    {
+      "id": "7d903f33-8e08-4af3-bde0-b88d39d83795",
+      "session_id": "1bbf0f4f-0c1b-47fa-9a58-1275d76ced4b",
+      "timestamp": "2026-05-20T10:35:00.000Z",
+      "text": "아직은 됐어",
+      "message_type": "HUMAN_CORRECTION",
+      "context_message_ids": [],
+      "confidence": 0.45,
+      "_reasons": [
+        "short message, no vocabulary hit",
+        "soft rejection — but \"됐어\" can also mean \"it works now\"; needs context"
+      ],
+      "_route": "human",
+      "_origin_kind": "human",
+      "_prompt_source": "cli",
+      "_raw_len": 6,
+      "_clean_len": 6,
+      "_block_types": [
+        "string"
+      ]
+    },
+    {
+      "id": "ab6b6f5d-1440-4543-a3e8-079f744363ce",
+      "session_id": "1bbf0f4f-0c1b-47fa-9a58-1275d76ced4b",
+      "timestamp": "2026-05-20T10:45:00.000Z",
+      "text": "쿠팡이 자동 요청 막으면 \"쿠팡 최종확인\"으로 표시해줘",
+      "message_type": "HUMAN_INTENT",
+      "context_message_ids": [],
+      "confidence": 0.8,
+      "_reasons": [
+        "requirement/imperative marker"
+      ],
+      "_route": "human",
+      "_origin_kind": "human",
+      "_prompt_source": "cli",
+      "_raw_len": 120,
+      "_clean_len": 30,
+      "_block_types": [
+        "string"
+      ]
+    },
+    {
+      "id": "e030195e-61d6-46ce-9641-73847914470a",
+      "session_id": "1bbf0f4f-0c1b-47fa-9a58-1275d76ced4b",
+      "timestamp": "2026-05-20T10:46:00.000Z",
+      "text": ".",
+      "message_type": "LOW_INFORMATION",
+      "context_message_ids": [
+        "7d903f33-8e08-4af3-bde0-b88d39d83795",
+        "ab6b6f5d-1440-4543-a3e8-079f744363ce"
+      ],
+      "confidence": 0.7,
+      "_reasons": [
+        "too short to carry intent"
+      ],
+      "_route": "human",
+      "_origin_kind": "human",
+      "_prompt_source": "cli",
+      "_raw_len": 1,
+      "_clean_len": 1,
+      "_block_types": [
+        "string"
+      ]
+    },
+    {
+      "id": "4908ea2b-07a5-4e2e-ac81-7c3223995284",
+      "session_id": "1bbf0f4f-0c1b-47fa-9a58-1275d76ced4b",
+      "timestamp": "2026-05-20T11:26:00.000Z",
+      "text": "이메일 로그인 말고 카카오 로그인으로 바꾸자",
+      "message_type": "HUMAN_CORRECTION",
+      "context_message_ids": [],
+      "confidence": 0.8,
+      "_reasons": [
+        "correction marker"
+      ],
+      "_route": "human",
+      "_origin_kind": "human",
+      "_prompt_source": "cli",
+      "_raw_len": 24,
+      "_clean_len": 24,
+      "_block_types": [
+        "string"
+      ]
+    },
+    {
+      "id": "4f8f7efb-50da-422e-8951-615bf22ea73e",
+      "session_id": "1bbf0f4f-0c1b-47fa-9a58-1275d76ced4b",
+      "timestamp": "2026-05-20T11:26:00.000Z",
+      "text": "",
+      "message_type": "TOOL_OR_SYSTEM_CONTENT",
+      "context_message_ids": [],
+      "confidence": 0.99,
+      "_reasons": [
+        "tool_result record"
+      ],
+      "_route": "tool_result",
+      "_origin_kind": null,
+      "_prompt_source": null,
+      "_raw_len": 0,
+      "_clean_len": 0,
+      "_block_types": [
+        "tool_result"
+      ]
+    }
+  ]
+}
