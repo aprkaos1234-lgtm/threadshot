@@ -76,19 +76,31 @@ function summarizeProjects(home) {
   }).sort((a, b) => b.bytes - a.bytes);
 }
 
+// Windows paths are case-insensitive and users paste them with or without a
+// trailing separator, so compare on a normalised form rather than raw equality.
+function normPath(p) {
+  if (!p) return '';
+  return p.replace(/[\\/]+$/, '').toLowerCase();
+}
+
 // Resolve a user-supplied project path (or directory name) to a project dir.
 function resolveProject(home, wanted) {
   const projects = summarizeProjects(home);
   if (!wanted) return projects;
   const abs = path.resolve(wanted);
-  const enc = encodeProjectPath(abs);
-  const exact = projects.filter(
-    (p) => p.cwd === abs || p.name === enc || p.name === wanted || p.dir === abs
-  );
+  const enc = encodeProjectPath(abs).toLowerCase();
+  // The `cwd` recorded inside the transcript is authoritative; the encoded
+  // directory name is only a fallback, since the encoding is Claude Code's
+  // private detail and could change.
+  const exact = projects.filter((p) =>
+    normPath(p.cwd) === normPath(abs) ||
+    normPath(p.dir) === normPath(abs) ||
+    p.name.toLowerCase() === enc ||
+    p.name.toLowerCase() === encodeProjectPath(wanted).toLowerCase());
   if (exact.length) return exact;
   // fall back to substring match on the encoded name
-  const needle = encodeProjectPath(wanted).replace(/^-+|-+$/g, '');
-  return projects.filter((p) => needle && p.name.includes(needle));
+  const needle = encodeProjectPath(wanted).replace(/^-+|-+$/g, '').toLowerCase();
+  return projects.filter((p) => needle && p.name.toLowerCase().includes(needle));
 }
 
 module.exports = {

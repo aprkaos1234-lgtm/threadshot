@@ -12,6 +12,42 @@
 
 ---
 
+## PC에서 바로 시작하기
+
+`npm install` 필요 없음 — 외부 의존성 0개, Node 내장 모듈만 씁니다. **Node 18+** 만 있으면 됩니다.
+
+```bash
+git clone <repo> && cd threadshot
+git checkout claude/intentguard-validation-prototype-uqjuga
+cd intentguard-prototype
+
+npm run projects        # 이 PC에 있는 Claude Code 이력 목록
+npm test                # 파서/필터 회귀 테스트 (선택)
+```
+
+`npm run projects` 가 출력한 경로를 그대로 복사해서:
+
+```bash
+npm run analyze -- "<복사한 경로>" --limit 200
+```
+
+검증된 것: 40세션 / 235MB / 사람 메시지 3,000개 이력에서 **1.7초, 메모리 124MB**.
+규모는 문제되지 않습니다.
+
+### 미리 알아둘 것 3가지
+
+1. **웹·모바일 세션 기록은 PC에 없습니다.** Claude Code on the web / 모바일 세션은
+   클라우드 컨테이너에 살고 세션이 끝나면 사라집니다. `~/.claude/projects/` 에 남는 것은
+   **로컬 CLI 로 작업한 이력뿐**입니다. 분석 대상 프로젝트를 주로 웹에서 작업했다면
+   그 이력은 복구할 수 없습니다.
+2. **Windows 는 실기 검증을 못 했습니다.** 경로 인코딩(`C:\Users\me\proj` → `C--Users-me-proj`)과
+   대소문자·후행 슬래시는 대응해 뒀지만 실제 Windows 에서 돌려본 적은 없습니다.
+   `npm run projects` 가 프로젝트를 못 찾으면 그게 첫 번째 의심 지점입니다.
+   (매칭은 디렉터리 이름보다 transcript 안의 `cwd` 필드를 우선 신뢰하도록 되어 있습니다.)
+3. **UNKNOWN 비율이 여기보다 높게 나옵니다.** 필터 어휘는 합성 fixture 기준으로 맞춘 것이라
+   본인의 실제 말버릇은 안 잡힐 수 있습니다. 그게 STEP 4 에서 고칠 대상이고,
+   `output/message_filter_samples.md` 의 UNKNOWN 섹션을 가장 먼저 보라고 한 이유입니다.
+
 ## 사용법
 
 ```bash

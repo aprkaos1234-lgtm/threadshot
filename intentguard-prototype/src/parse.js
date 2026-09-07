@@ -1,6 +1,5 @@
 'use strict';
 const fs = require('fs');
-const readline = require('readline');
 
 /*
  * Claude Code transcript parser.

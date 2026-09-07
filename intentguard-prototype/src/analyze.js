@@ -228,7 +228,9 @@ function renderReport(timeline, counts, meta, diag) {
   const rawChars = timeline.reduce((s, r) => s + r._raw_len, 0);
   L.push('| 대상 | 문자 | 추정 토큰 |');
   L.push('|---|---:|---:|');
-  L.push('| Raw user-role 전체 | ' + fmt(rawChars) + ' | ~' + fmt(Math.ceil(rawChars / 3)) + ' (거친 상한) |');
+  // tool_result 본문은 rawText 에 담지 않는다(메모리). 따라서 이 행은 "raw 전체"가
+  // 아니라 "사람 메시지의 정제 전 문자수"다. 라벨을 실제 내용에 맞춘다.
+  L.push('| 사람 메시지 (정제 전, 주입 블록 포함) | ' + fmt(rawChars) + ' | ~' + fmt(Math.ceil(rawChars / 3)) + ' |');
   L.push('| 필터 통과 human timeline | ' + fmt(humanText.join('').length) + ' | ' + fmt(estimateTokens(humanText.join('\n'))) + ' |');
   L.push('| intent-bearing 만 | ' + fmt(intentText.join('').length) + ' | ' + fmt(estimateTokens(intentText.join('\n'))) + ' |');
   L.push('');
