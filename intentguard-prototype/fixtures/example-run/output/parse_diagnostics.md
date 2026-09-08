@@ -3,7 +3,7 @@
 Claude Code 는 외부 제품이 통제하는 비공개 포맷이다. 여기 기록되는 값들은
 IntentGuard 를 제품으로 유지할 때 **매 릴리스마다 깨질 수 있는 지점**의 목록이다.
 
-- Claude Code 버전: {"2.0.31":20,"2.1.263":20,"1.0.88":22}
+- Claude Code 버전: {"1.0.88":22,"2.0.31":20,"2.1.263":20}
 - entrypoint: {"cli":42,"remote_mobile":20}
 - 파일 3개 / 라인 62개
 - JSON 파싱 실패: 0
@@ -42,7 +42,7 @@ IntentGuard 를 제품으로 유지할 때 **매 릴리스마다 깨질 수 있�
 | attachment.type | 수 |
 |---|---:|
 | `skill_listing` | 2 |
-| `date` | 1 |
 | `environment` | 1 |
+| `date` | 1 |
 
 이들은 전부 `type: "attachment"` 로 분리되어 있어 배제가 쉬웠다. 다만 종류가 3가지이고 버전마다 늘어난다.

@@ -1,0 +1,28 @@
+{
+  "verdicts": {
+    "merged_0003": "CORRECT_ACTIVE",
+    "merged_0012": "CORRECT_NON_ACTIVE",
+    "merged_0004": "NOT_A_REAL_REQUIREMENT",
+    "merged_0001": "WRONG_STATUS",
+    "merged_0017": "AMBIGUOUS_IN_REALITY",
+    "merged_0010": "CORRECT_ACTIVE",
+    "merged_0016": "CORRECT_NON_ACTIVE",
+    "merged_0018": "NOT_A_REAL_REQUIREMENT",
+    "merged_0015": "WRONG_STATUS",
+    "merged_0013": "AMBIGUOUS_IN_REALITY",
+    "merged_0002": "CORRECT_ACTIVE",
+    "merged_0008": "CORRECT_NON_ACTIVE",
+    "merged_0011": "NOT_A_REAL_REQUIREMENT",
+    "merged_0014": "WRONG_STATUS",
+    "merged_0005": "AMBIGUOUS_IN_REALITY",
+    "merged_0007": "CORRECT_ACTIVE",
+    "merged_0006": "CORRECT_NON_ACTIVE",
+    "merged_0009": "NOT_A_REAL_REQUIREMENT"
+  },
+  "notes": {},
+  "manual_missing": [
+    "분석 결과를 CSV 로 내보내는 기능"
+  ],
+  "completed": true,
+  "completed_at": "2026-09-08T00:51:39.702Z"
+}

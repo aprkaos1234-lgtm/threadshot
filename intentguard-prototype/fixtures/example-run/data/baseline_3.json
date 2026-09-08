@@ -1,0 +1,55 @@
+{
+  "generated": "2026-09-08T00:51:39.542Z",
+  "run": 3,
+  "strategy": "single_pass",
+  "requirements": [
+    {
+      "requirement": "구글 트렌드에서 한국 인기 검색어를 가져와서 쇼핑 상품형 키워드만 골라주는 웹앱을 만들어줘",
+      "status": "ACTIVE",
+      "evidence": null,
+      "reasoning": null
+    },
+    {
+      "requirement": "무료 사용자는 월 3회만 분석할 수 있게 제한해",
+      "status": "AMBIGUOUS",
+      "evidence": null,
+      "reasoning": null
+    },
+    {
+      "requirement": "ㅇㅇ",
+      "status": "ACTIVE",
+      "evidence": null,
+      "reasoning": null
+    },
+    {
+      "requirement": "로그인은 일단 이메일만 지원하자",
+      "status": "ACTIVE",
+      "evidence": null,
+      "reasoning": null
+    },
+    {
+      "requirement": "타임아웃 늘리고 재시도 3번 하게 해줘",
+      "status": "ACTIVE",
+      "evidence": null,
+      "reasoning": null
+    },
+    {
+      "requirement": "테스트하는 동안에는 월 3회 제한 풀어줘. 계속 걸려서 확인이 안 돼",
+      "status": "ACTIVE",
+      "evidence": null,
+      "reasoning": null
+    },
+    {
+      "requirement": "ㅇㅋ",
+      "status": "ACTIVE",
+      "evidence": null,
+      "reasoning": null
+    },
+    {
+      "requirement": "이거 왜 안 되지?",
+      "status": "ACTIVE",
+      "evidence": null,
+      "reasoning": null
+    }
+  ]
+}

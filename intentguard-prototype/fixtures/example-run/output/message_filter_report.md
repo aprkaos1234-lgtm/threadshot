@@ -3,7 +3,7 @@
 - 프로젝트: `/home/user/demo-app`
 - 세션 파일: 3개
 - 범위: 전체 이력
-- 생성: 2026-09-07T15:03:40.792Z
+- 생성: 2026-09-08T00:51:39.477Z
 - LLM 호출: **0회 (비용 $0)** — Stage 1 은 전부 결정론적 규칙
 
 ## 카운트 (명세 §7)
@@ -33,7 +33,7 @@
 
 | 대상 | 문자 | 추정 토큰 |
 |---|---:|---:|
-| Raw user-role 전체 | 1,289 | 430 (거친 상한) |
+| 사람 메시지 (정제 전, 주입 블록 포함) | 1,289 | ~430 |
 | 필터 통과 human timeline | 685 | 341 |
 | intent-bearing 만 | 454 | 270 |
 
@@ -62,9 +62,9 @@
   },
   "unknownRecordTypes": {},
   "attachmentTypes": {
-    "skill_listing": 2,
+    "environment": 1,
     "date": 1,
-    "environment": 1
+    "skill_listing": 2
   },
   "userContentShapes": {
     "string": 28,
@@ -79,9 +79,9 @@
     "permissionMode": 18
   },
   "versions": {
+    "1.0.88": 22,
     "2.0.31": 20,
-    "2.1.263": 20,
-    "1.0.88": 22
+    "2.1.263": 20
   },
   "entrypoints": {
     "cli": 42,

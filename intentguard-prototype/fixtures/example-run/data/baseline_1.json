@@ -1,0 +1,55 @@
+{
+  "generated": "2026-09-08T00:51:39.542Z",
+  "run": 1,
+  "strategy": "single_pass",
+  "requirements": [
+    {
+      "requirement": "무료 사용자는 월 3회만 분석할 수 있게 제한해",
+      "status": "ACTIVE",
+      "evidence": null,
+      "reasoning": null
+    },
+    {
+      "requirement": "결과 카드에 쿠팡 검색 링크를 같이 넣어줘",
+      "status": "ACTIVE",
+      "evidence": null,
+      "reasoning": null
+    },
+    {
+      "requirement": "로그인은 일단 이메일만 지원하자",
+      "status": "ACTIVE",
+      "evidence": null,
+      "reasoning": null
+    },
+    {
+      "requirement": "그리고 분석 결과를 공유할 수 있는 링크 생성 기능도 추가해줘",
+      "status": "ACTIVE",
+      "evidence": null,
+      "reasoning": null
+    },
+    {
+      "requirement": "테스트하는 동안에는 월 3회 제한 풀어줘. 계속 걸려서 확인이 안 돼",
+      "status": "ACTIVE",
+      "evidence": null,
+      "reasoning": null
+    },
+    {
+      "requirement": "아까 만든 공유 링크 기능은 빼자. 스팸 신고가 들어올 것 같아",
+      "status": "ACTIVE",
+      "evidence": null,
+      "reasoning": null
+    },
+    {
+      "requirement": "이거 왜 안 되지?",
+      "status": "ACTIVE",
+      "evidence": null,
+      "reasoning": null
+    },
+    {
+      "requirement": "상단에 마지막 업데이트 시간 표시해줘",
+      "status": "ACTIVE",
+      "evidence": null,
+      "reasoning": null
+    }
+  ]
+}

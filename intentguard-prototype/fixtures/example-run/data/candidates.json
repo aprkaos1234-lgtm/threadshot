@@ -1,0 +1,215 @@
+{
+  "generated": "2026-09-08T00:51:39.510Z",
+  "candidates": [
+    {
+      "id": "cand_0001",
+      "normalized_requirement": "구글 트렌드에서 한국 인기 검색어를 가져와서 쇼핑 상품형 키워드만 골라주는 웹앱을 만들어줘",
+      "type": "REQUIREMENT",
+      "refers_to": null,
+      "source_message_id": "718ecbb3-44c8-434c-b08c-82bb5ebefe8f",
+      "source_text": "구글 트렌드에서 한국 인기 검색어를 가져와서 쇼핑 상품형 키워드만 골라주는 웹앱을 만들어줘",
+      "timestamp": "2026-03-02T09:00:00.000Z",
+      "confidence": 0.8
+    },
+    {
+      "id": "cand_0002",
+      "normalized_requirement": "무료 사용자는 월 3회만 분석할 수 있게 제한해",
+      "type": "REQUIREMENT",
+      "refers_to": null,
+      "source_message_id": "fd72e3e9-6234-460c-94ca-d8b8ab03efbd",
+      "source_text": "무료 사용자는 월 3회만 분석할 수 있게 제한해",
+      "timestamp": "2026-03-02T09:45:00.000Z",
+      "confidence": 0.8
+    },
+    {
+      "id": "cand_0003",
+      "normalized_requirement": "결과 카드에 쿠팡 검색 링크를 같이 넣어줘",
+      "type": "REQUIREMENT",
+      "refers_to": null,
+      "source_message_id": "38f97d3c-e3aa-4e9e-9e5c-b89c338d167e",
+      "source_text": "결과 카드에 쿠팡 검색 링크를 같이 넣어줘",
+      "timestamp": "2026-03-02T10:05:00.000Z",
+      "confidence": 0.8
+    },
+    {
+      "id": "cand_0004",
+      "normalized_requirement": "ㅇㅇ",
+      "type": "REQUIREMENT",
+      "refers_to": null,
+      "source_message_id": "24b1a4be-01b5-47f3-aed1-1cded3990ea8",
+      "source_text": "ㅇㅇ",
+      "timestamp": "2026-03-02T10:08:00.000Z",
+      "confidence": 0.8
+    },
+    {
+      "id": "cand_0005",
+      "normalized_requirement": "로그인은 일단 이메일만 지원하자",
+      "type": "REQUIREMENT",
+      "refers_to": null,
+      "source_message_id": "8e1c47b1-285d-4bbf-8d16-e7c035bac401",
+      "source_text": "로그인은 일단 이메일만 지원하자",
+      "timestamp": "2026-03-02T11:08:00.000Z",
+      "confidence": 0.8
+    },
+    {
+      "id": "cand_0006",
+      "normalized_requirement": "그리고 분석 결과를 공유할 수 있는 링크 생성 기능도 추가해줘",
+      "type": "REQUIREMENT",
+      "refers_to": null,
+      "source_message_id": "dfefe9dd-a63c-4e7b-ae3e-0820b1a1e22c",
+      "source_text": "그리고 분석 결과를 공유할 수 있는 링크 생성 기능도 추가해줘",
+      "timestamp": "2026-03-02T11:38:00.000Z",
+      "confidence": 0.8
+    },
+    {
+      "id": "cand_0007",
+      "normalized_requirement": "타임아웃 늘리고 재시도 3번 하게 해줘",
+      "type": "REQUIREMENT",
+      "refers_to": null,
+      "source_message_id": "23517887-59f4-4e57-8eb2-94ffed40f78c",
+      "source_text": "타임아웃 늘리고 재시도 3번 하게 해줘",
+      "timestamp": "2026-03-02T12:00:00.000Z",
+      "confidence": 0.8
+    },
+    {
+      "id": "cand_0008",
+      "normalized_requirement": "테스트하는 동안에는 월 3회 제한 풀어줘. 계속 걸려서 확인이 안 돼",
+      "type": "REQUIREMENT",
+      "refers_to": null,
+      "source_message_id": "38ab3101-95c0-4304-8f71-6fedc12becc6",
+      "source_text": "테스트하는 동안에는 월 3회 제한 풀어줘. 계속 걸려서 확인이 안 돼",
+      "timestamp": "2026-04-11T10:00:00.000Z",
+      "confidence": 0.8
+    },
+    {
+      "id": "cand_0009",
+      "normalized_requirement": "아까 만든 공유 링크 기능은 빼자. 스팸 신고가 들어올 것 같아",
+      "type": "CHANGE",
+      "refers_to": null,
+      "source_message_id": "362c408e-5b08-4bca-a0ec-66a7117df0ae",
+      "source_text": "아까 만든 공유 링크 기능은 빼자. 스팸 신고가 들어올 것 같아",
+      "timestamp": "2026-04-11T10:45:00.000Z",
+      "confidence": 0.8
+    },
+    {
+      "id": "cand_0010",
+      "normalized_requirement": "ㅇㅋ",
+      "type": "REQUIREMENT",
+      "refers_to": null,
+      "source_message_id": "e77a571e-c27a-4322-92c7-7d4df2d60099",
+      "source_text": "ㅇㅋ",
+      "timestamp": "2026-04-11T10:47:00.000Z",
+      "confidence": 0.8
+    },
+    {
+      "id": "cand_0011",
+      "normalized_requirement": "이거 왜 안 되지?",
+      "type": "REQUIREMENT",
+      "refers_to": null,
+      "source_message_id": "68519b42-6118-41c7-8458-bdfc6e16f806",
+      "source_text": "이거 왜 안 되지?\nexport async function GET() {\n  const res = await fetch(TRENDS_URL, { next: { revalidate: 0 } });\n  const xml = await res.text();\n  const items = parseRss(xml);\n  return Response.json({ items });\n}",
+      "timestamp": "2026-04-11T11:12:00.000Z",
+      "confidence": 0.8
+    },
+    {
+      "id": "cand_0012",
+      "normalized_requirement": "상단에 마지막 업데이트 시간 표시해줘",
+      "type": "REQUIREMENT",
+      "refers_to": null,
+      "source_message_id": "f6195954-9961-4237-89b7-03723a56cb62",
+      "source_text": "상단에 마지막 업데이트 시간 표시해줘",
+      "timestamp": "2026-04-11T11:43:00.000Z",
+      "confidence": 0.8
+    },
+    {
+      "id": "cand_0013",
+      "normalized_requirement": "출시 준비하자. 무료 사용자 제한 다시 월 3회로 되돌려줘",
+      "type": "CHANGE",
+      "refers_to": null,
+      "source_message_id": "2cb27240-057b-4a2f-a945-3f30569e619a",
+      "source_text": "출시 준비하자. 무료 사용자 제한 다시 월 3회로 되돌려줘",
+      "timestamp": "2026-05-20T08:30:00.000Z",
+      "confidence": 0.8
+    },
+    {
+      "id": "cand_0014",
+      "normalized_requirement": "아니 3회 말고 5회로 하자. 초반엔 좀 넉넉하게 주는 게 나을 것 같아",
+      "type": "CHANGE",
+      "refers_to": null,
+      "source_message_id": "f16068ae-6bdb-4f41-bc9d-5d056c7c03cf",
+      "source_text": "아니 3회 말고 5회로 하자. 초반엔 좀 넉넉하게 주는 게 나을 것 같아",
+      "timestamp": "2026-05-20T08:45:00.000Z",
+      "confidence": 0.8
+    },
+    {
+      "id": "cand_0015",
+      "normalized_requirement": "네",
+      "type": "REQUIREMENT",
+      "refers_to": null,
+      "source_message_id": "d5eb4e9e-fbda-40f1-b45b-36558a754a5b",
+      "source_text": "네",
+      "timestamp": "2026-05-20T08:47:00.000Z",
+      "confidence": 0.8
+    },
+    {
+      "id": "cand_0016",
+      "normalized_requirement": "한국시간 오전 6시를 하루 갱신 기준으로 써줘",
+      "type": "REQUIREMENT",
+      "refers_to": null,
+      "source_message_id": "ad9c94cc-4daf-43e7-9de6-2b0882adbd3a",
+      "source_text": "한국시간 오전 6시를 하루 갱신 기준으로 써줘",
+      "timestamp": "2026-05-20T09:37:00.000Z",
+      "confidence": 0.8
+    },
+    {
+      "id": "cand_0017",
+      "normalized_requirement": "앱 켜둔 상태면 10분마다 날짜 경계 확인해서 자동 갱신하게",
+      "type": "REQUIREMENT",
+      "refers_to": null,
+      "source_message_id": "28a108a9-3dad-4966-a5a3-51f03e8d407c",
+      "source_text": "앱 켜둔 상태면 10분마다 날짜 경계 확인해서 자동 갱신하게",
+      "timestamp": "2026-05-20T09:57:00.000Z",
+      "confidence": 0.8
+    },
+    {
+      "id": "cand_0018",
+      "normalized_requirement": "팀 기능도 나중에 만들까?",
+      "type": "REQUIREMENT",
+      "refers_to": null,
+      "source_message_id": "be579133-7623-4560-adbe-479a9509f6a6",
+      "source_text": "팀 기능도 나중에 만들까?",
+      "timestamp": "2026-05-20T10:32:00.000Z",
+      "confidence": 0.8
+    },
+    {
+      "id": "cand_0019",
+      "normalized_requirement": "아직은 됐어",
+      "type": "REQUIREMENT",
+      "refers_to": null,
+      "source_message_id": "adcce67c-1b16-481e-aafc-495ec044405b",
+      "source_text": "아직은 됐어",
+      "timestamp": "2026-05-20T10:35:00.000Z",
+      "confidence": 0.8
+    },
+    {
+      "id": "cand_0020",
+      "normalized_requirement": "쿠팡이 자동 요청 막으면 \"쿠팡 최종확인\"으로 표시해줘",
+      "type": "REQUIREMENT",
+      "refers_to": null,
+      "source_message_id": "2b2d0920-4310-44e9-a7a1-1e37a13202df",
+      "source_text": "쿠팡이 자동 요청 막으면 \"쿠팡 최종확인\"으로 표시해줘",
+      "timestamp": "2026-05-20T10:45:00.000Z",
+      "confidence": 0.8
+    },
+    {
+      "id": "cand_0021",
+      "normalized_requirement": "이메일 로그인 말고 카카오 로그인으로 바꾸자",
+      "type": "CHANGE",
+      "refers_to": null,
+      "source_message_id": "5329b14e-fe8d-43a3-b150-5419699d94df",
+      "source_text": "이메일 로그인 말고 카카오 로그인으로 바꾸자",
+      "timestamp": "2026-05-20T11:26:00.000Z",
+      "confidence": 0.8
+    }
+  ]
+}

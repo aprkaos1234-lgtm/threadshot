@@ -1,0 +1,55 @@
+{
+  "generated": "2026-09-08T00:51:39.542Z",
+  "run": 2,
+  "strategy": "single_pass",
+  "requirements": [
+    {
+      "requirement": "구글 트렌드에서 한국 인기 검색어를 가져와서 쇼핑 상품형 키워드만 골라주는 웹앱을 만들어줘",
+      "status": "REJECTED",
+      "evidence": null,
+      "reasoning": null
+    },
+    {
+      "requirement": "결과 카드에 쿠팡 검색 링크를 같이 넣어줘",
+      "status": "ACTIVE",
+      "evidence": null,
+      "reasoning": null
+    },
+    {
+      "requirement": "ㅇㅇ",
+      "status": "ACTIVE",
+      "evidence": null,
+      "reasoning": null
+    },
+    {
+      "requirement": "그리고 분석 결과를 공유할 수 있는 링크 생성 기능도 추가해줘",
+      "status": "ACTIVE",
+      "evidence": null,
+      "reasoning": null
+    },
+    {
+      "requirement": "타임아웃 늘리고 재시도 3번 하게 해줘",
+      "status": "ACTIVE",
+      "evidence": null,
+      "reasoning": null
+    },
+    {
+      "requirement": "아까 만든 공유 링크 기능은 빼자. 스팸 신고가 들어올 것 같아",
+      "status": "ACTIVE",
+      "evidence": null,
+      "reasoning": null
+    },
+    {
+      "requirement": "ㅇㅋ",
+      "status": "ACTIVE",
+      "evidence": null,
+      "reasoning": null
+    },
+    {
+      "requirement": "상단에 마지막 업데이트 시간 표시해줘",
+      "status": "ACTIVE",
+      "evidence": null,
+      "reasoning": null
+    }
+  ]
+}

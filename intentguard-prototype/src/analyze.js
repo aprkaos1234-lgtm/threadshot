@@ -4,7 +4,8 @@ const path = require('path');
 
 const discover = require('./discover');
 const { parseAll } = require('./parse');
-const { buildTimeline, tally, HUMAN_TYPES, INTENT_BEARING, NOISE_TYPES } = require('./filter');
+const { HUMAN_TYPES, INTENT_BEARING, NOISE_TYPES } = require('./filter');
+const { loadTimeline } = require('./load');
 const { estimateTokens } = require('./tokens');
 
 const ROOT = path.resolve(__dirname, '..');
@@ -345,59 +346,18 @@ function main() {
   }
 
   const wanted = args.positional[0];
-  const matched = discover.resolveProject(home, wanted);
-  if (!matched.length) {
-    console.error('프로젝트를 찾을 수 없습니다: ' + wanted);
-    console.error('`npm run projects` 로 목록을 확인하세요.');
+  let loaded;
+  try {
+    loaded = loadTimeline(home, wanted, { from: args.from, to: args.to, limit: args.limit });
+  } catch (e) {
+    console.error(e.message);
     process.exit(1);
   }
-  if (matched.length > 1) {
-    console.error('여러 프로젝트가 일치합니다. 정확한 경로를 지정하세요:');
-    matched.forEach((p) => console.error('  ' + (p.cwd || p.name)));
-    process.exit(1);
-  }
-  const project = matched[0];
-  const files = discover.sessionFiles(project.dir);
-  console.log('project : ' + (project.cwd || project.name));
+  const { project, files, timeline, counts, diagnostics, meta } = loaded;
+  console.log('project : ' + meta.project);
   console.log('dir     : ' + project.dir);
   console.log('sessions: ' + files.length);
-
-  const { entries, diagnostics } = parseAll(files);
-  let userEntries = entries.filter((e) => e.kind === 'user');
-
-  const scopeParts = [];
-  if (args.from) {
-    const t = Date.parse(args.from);
-    userEntries = userEntries.filter((e) => e.timestamp && Date.parse(e.timestamp) >= t);
-    scopeParts.push('from ' + args.from);
-  }
-  if (args.to) {
-    const t = Date.parse(args.to);
-    userEntries = userEntries.filter((e) => e.timestamp && Date.parse(e.timestamp) <= t);
-    scopeParts.push('to ' + args.to);
-  }
-  const beforeLimit = userEntries.length;
-  if (args.limit && userEntries.length > args.limit) {
-    userEntries = userEntries.slice(-args.limit);
-    scopeParts.push('most recent ' + args.limit + ' of ' + beforeLimit + ' raw user-role records');
-  } else if (args.limit) {
-    scopeParts.push('--limit ' + args.limit + ' (전체 ' + beforeLimit + '개가 한도 이하)');
-  }
-  const scope = scopeParts.length ? scopeParts.join(', ') : '전체 이력';
-
-  const timeline = buildTimeline(userEntries);
-  const counts = tally(timeline);
-  const ts = timeline.map((r) => r.timestamp).filter(Boolean).sort();
-  const spanDays = ts.length ? (Date.parse(ts[ts.length - 1]) - Date.parse(ts[0])) / 86400000 : 0;
-  const warnings = [];
-  if (files.length < 3) warnings.push('세션 파일이 ' + files.length + '개뿐이다. 여러 세션에 걸친 개발 이력이 아니다 (명세 §2).');
-  if (spanDays < 7) warnings.push('이력 기간이 ' + spanDays.toFixed(2) + '일이다. "긴 시간축의 변경/취소/재활성화"가 존재할 수 없는 길이다.');
-  if (counts.humanMessages < 50) warnings.push('사람 메시지가 ' + counts.humanMessages + '개뿐이다. 필터 품질을 통계적으로 평가할 수 없다.');
-  if (counts.intentBearing < 20) warnings.push('intent-bearing 메시지가 ' + counts.intentBearing + '개뿐이다. Requirement 복구 성능을 비교할 대상이 없다.');
-  const meta = {
-    project: project.cwd || project.name, sessionCount: files.length, scope,
-    adequacy: { spanDays: Number(spanDays.toFixed(2)), warnings },
-  };
+  const scope = meta.scope;
 
   const dataDir = path.join(args.out, 'data');
   const outDir = path.join(args.out, 'output');

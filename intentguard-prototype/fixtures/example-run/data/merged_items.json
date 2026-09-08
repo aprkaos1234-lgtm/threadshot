@@ -1,0 +1,562 @@
+{
+  "generated": "2026-09-08T00:51:39.563Z",
+  "seed": "demo",
+  "stats": {
+    "raw_items": 42,
+    "merged_items": 18,
+    "pairs_judged": 40,
+    "exhaustive_pairs_avoided": 861,
+    "uncertain_rechecked": 0,
+    "judge_calls_saved_ratio": 0.954
+  },
+  "items": [
+    {
+      "id": "merged_0003",
+      "requirement": "결과 카드에 쿠팡 검색 링크를 같이 넣어줘",
+      "status": "ACTIVE",
+      "_sources": [
+        "baseline_1",
+        "baseline_2",
+        "intentguard"
+      ],
+      "_member_statuses": {
+        "intentguard": "SUPERSEDED",
+        "baseline_1": "ACTIVE",
+        "baseline_2": "ACTIVE"
+      },
+      "_status_disagreement": true,
+      "_members": [
+        {
+          "id": "it_0003",
+          "source": "intentguard",
+          "requirement": "결과 카드에 쿠팡 검색 링크를 같이 넣어줘",
+          "status": "ACTIVE"
+        },
+        {
+          "id": "it_0016",
+          "source": "intentguard",
+          "requirement": "결과 카드에 쿠팡 검색 링크를 같이 넣어줘",
+          "status": "SUPERSEDED"
+        },
+        {
+          "id": "it_0020",
+          "source": "baseline_1",
+          "requirement": "결과 카드에 쿠팡 검색 링크를 같이 넣어줘",
+          "status": "ACTIVE"
+        },
+        {
+          "id": "it_0028",
+          "source": "baseline_2",
+          "requirement": "결과 카드에 쿠팡 검색 링크를 같이 넣어줘",
+          "status": "ACTIVE"
+        }
+      ]
+    },
+    {
+      "id": "merged_0012",
+      "requirement": "한국시간 오전 6시를 하루 갱신 기준으로 써줘",
+      "status": "ACTIVE",
+      "_sources": [
+        "intentguard"
+      ],
+      "_member_statuses": {
+        "intentguard": "ACTIVE"
+      },
+      "_status_disagreement": false,
+      "_members": [
+        {
+          "id": "it_0012",
+          "source": "intentguard",
+          "requirement": "한국시간 오전 6시를 하루 갱신 기준으로 써줘",
+          "status": "ACTIVE"
+        }
+      ]
+    },
+    {
+      "id": "merged_0004",
+      "requirement": "ㅇㅇ",
+      "status": "ACTIVE",
+      "_sources": [
+        "baseline_2",
+        "baseline_3",
+        "intentguard"
+      ],
+      "_member_statuses": {
+        "intentguard": "ACTIVE",
+        "baseline_2": "ACTIVE",
+        "baseline_3": "ACTIVE"
+      },
+      "_status_disagreement": false,
+      "_members": [
+        {
+          "id": "it_0004",
+          "source": "intentguard",
+          "requirement": "ㅇㅇ",
+          "status": "ACTIVE"
+        },
+        {
+          "id": "it_0029",
+          "source": "baseline_2",
+          "requirement": "ㅇㅇ",
+          "status": "ACTIVE"
+        },
+        {
+          "id": "it_0037",
+          "source": "baseline_3",
+          "requirement": "ㅇㅇ",
+          "status": "ACTIVE"
+        }
+      ]
+    },
+    {
+      "id": "merged_0001",
+      "requirement": "구글 트렌드에서 한국 인기 검색어를 가져와서 쇼핑 상품형 키워드만 골라주는 웹앱을 만들어줘",
+      "status": "ACTIVE",
+      "_sources": [
+        "baseline_2",
+        "baseline_3",
+        "intentguard"
+      ],
+      "_member_statuses": {
+        "intentguard": "ACTIVE",
+        "baseline_2": "REJECTED",
+        "baseline_3": "ACTIVE"
+      },
+      "_status_disagreement": true,
+      "_members": [
+        {
+          "id": "it_0001",
+          "source": "intentguard",
+          "requirement": "구글 트렌드에서 한국 인기 검색어를 가져와서 쇼핑 상품형 키워드만 골라주는 웹앱을 만들어줘",
+          "status": "ACTIVE"
+        },
+        {
+          "id": "it_0027",
+          "source": "baseline_2",
+          "requirement": "구글 트렌드에서 한국 인기 검색어를 가져와서 쇼핑 상품형 키워드만 골라주는 웹앱을 만들어줘",
+          "status": "REJECTED"
+        },
+        {
+          "id": "it_0035",
+          "source": "baseline_3",
+          "requirement": "구글 트렌드에서 한국 인기 검색어를 가져와서 쇼핑 상품형 키워드만 골라주는 웹앱을 만들어줘",
+          "status": "ACTIVE"
+        }
+      ]
+    },
+    {
+      "id": "merged_0017",
+      "requirement": "테스트하는 동안에는 월 3회 제한 풀어줘. 계속 걸려서 확인이 안 돼",
+      "status": "ACTIVE",
+      "_sources": [
+        "baseline_1",
+        "baseline_3"
+      ],
+      "_member_statuses": {
+        "baseline_1": "ACTIVE",
+        "baseline_3": "ACTIVE"
+      },
+      "_status_disagreement": false,
+      "_members": [
+        {
+          "id": "it_0023",
+          "source": "baseline_1",
+          "requirement": "테스트하는 동안에는 월 3회 제한 풀어줘. 계속 걸려서 확인이 안 돼",
+          "status": "ACTIVE"
+        },
+        {
+          "id": "it_0040",
+          "source": "baseline_3",
+          "requirement": "테스트하는 동안에는 월 3회 제한 풀어줘. 계속 걸려서 확인이 안 돼",
+          "status": "ACTIVE"
+        }
+      ]
+    },
+    {
+      "id": "merged_0010",
+      "requirement": "아니 3회 말고 5회로 하자. 초반엔 좀 넉넉하게 주는 게 나을 것 같아",
+      "status": "ACTIVE",
+      "_sources": [
+        "intentguard"
+      ],
+      "_member_statuses": {
+        "intentguard": "ACTIVE"
+      },
+      "_status_disagreement": false,
+      "_members": [
+        {
+          "id": "it_0010",
+          "source": "intentguard",
+          "requirement": "아니 3회 말고 5회로 하자. 초반엔 좀 넉넉하게 주는 게 나을 것 같아",
+          "status": "ACTIVE"
+        }
+      ]
+    },
+    {
+      "id": "merged_0016",
+      "requirement": "상단에 마지막 업데이트 시간 표시해줘",
+      "status": "ACTIVE",
+      "_sources": [
+        "baseline_1",
+        "baseline_2",
+        "intentguard"
+      ],
+      "_member_statuses": {
+        "intentguard": "SUPERSEDED",
+        "baseline_1": "ACTIVE",
+        "baseline_2": "ACTIVE"
+      },
+      "_status_disagreement": true,
+      "_members": [
+        {
+          "id": "it_0017",
+          "source": "intentguard",
+          "requirement": "상단에 마지막 업데이트 시간 표시해줘",
+          "status": "SUPERSEDED"
+        },
+        {
+          "id": "it_0026",
+          "source": "baseline_1",
+          "requirement": "상단에 마지막 업데이트 시간 표시해줘",
+          "status": "ACTIVE"
+        },
+        {
+          "id": "it_0034",
+          "source": "baseline_2",
+          "requirement": "상단에 마지막 업데이트 시간 표시해줘",
+          "status": "ACTIVE"
+        }
+      ]
+    },
+    {
+      "id": "merged_0018",
+      "requirement": "아까 만든 공유 링크 기능은 빼자. 스팸 신고가 들어올 것 같아",
+      "status": "ACTIVE",
+      "_sources": [
+        "baseline_1",
+        "baseline_2"
+      ],
+      "_member_statuses": {
+        "baseline_1": "ACTIVE",
+        "baseline_2": "ACTIVE"
+      },
+      "_status_disagreement": false,
+      "_members": [
+        {
+          "id": "it_0024",
+          "source": "baseline_1",
+          "requirement": "아까 만든 공유 링크 기능은 빼자. 스팸 신고가 들어올 것 같아",
+          "status": "ACTIVE"
+        },
+        {
+          "id": "it_0032",
+          "source": "baseline_2",
+          "requirement": "아까 만든 공유 링크 기능은 빼자. 스팸 신고가 들어올 것 같아",
+          "status": "ACTIVE"
+        }
+      ]
+    },
+    {
+      "id": "merged_0015",
+      "requirement": "아직은 됐어",
+      "status": "ACTIVE",
+      "_sources": [
+        "intentguard"
+      ],
+      "_member_statuses": {
+        "intentguard": "ACTIVE"
+      },
+      "_status_disagreement": false,
+      "_members": [
+        {
+          "id": "it_0015",
+          "source": "intentguard",
+          "requirement": "아직은 됐어",
+          "status": "ACTIVE"
+        }
+      ]
+    },
+    {
+      "id": "merged_0013",
+      "requirement": "앱 켜둔 상태면 10분마다 날짜 경계 확인해서 자동 갱신하게",
+      "status": "ACTIVE",
+      "_sources": [
+        "intentguard"
+      ],
+      "_member_statuses": {
+        "intentguard": "ACTIVE"
+      },
+      "_status_disagreement": false,
+      "_members": [
+        {
+          "id": "it_0013",
+          "source": "intentguard",
+          "requirement": "앱 켜둔 상태면 10분마다 날짜 경계 확인해서 자동 갱신하게",
+          "status": "ACTIVE"
+        }
+      ]
+    },
+    {
+      "id": "merged_0002",
+      "requirement": "무료 사용자는 월 3회만 분석할 수 있게 제한해",
+      "status": "ACTIVE",
+      "_sources": [
+        "baseline_1",
+        "baseline_3",
+        "intentguard"
+      ],
+      "_member_statuses": {
+        "intentguard": "ACTIVE",
+        "baseline_1": "ACTIVE",
+        "baseline_3": "AMBIGUOUS"
+      },
+      "_status_disagreement": true,
+      "_members": [
+        {
+          "id": "it_0002",
+          "source": "intentguard",
+          "requirement": "무료 사용자는 월 3회만 분석할 수 있게 제한해",
+          "status": "ACTIVE"
+        },
+        {
+          "id": "it_0019",
+          "source": "baseline_1",
+          "requirement": "무료 사용자는 월 3회만 분석할 수 있게 제한해",
+          "status": "ACTIVE"
+        },
+        {
+          "id": "it_0036",
+          "source": "baseline_3",
+          "requirement": "무료 사용자는 월 3회만 분석할 수 있게 제한해",
+          "status": "AMBIGUOUS"
+        }
+      ]
+    },
+    {
+      "id": "merged_0008",
+      "requirement": "ㅇㅋ",
+      "status": "ACTIVE",
+      "_sources": [
+        "baseline_2",
+        "baseline_3",
+        "intentguard"
+      ],
+      "_member_statuses": {
+        "intentguard": "ACTIVE",
+        "baseline_2": "ACTIVE",
+        "baseline_3": "ACTIVE"
+      },
+      "_status_disagreement": false,
+      "_members": [
+        {
+          "id": "it_0008",
+          "source": "intentguard",
+          "requirement": "ㅇㅋ",
+          "status": "ACTIVE"
+        },
+        {
+          "id": "it_0033",
+          "source": "baseline_2",
+          "requirement": "ㅇㅋ",
+          "status": "ACTIVE"
+        },
+        {
+          "id": "it_0041",
+          "source": "baseline_3",
+          "requirement": "ㅇㅋ",
+          "status": "ACTIVE"
+        }
+      ]
+    },
+    {
+      "id": "merged_0011",
+      "requirement": "네",
+      "status": "ACTIVE",
+      "_sources": [
+        "intentguard"
+      ],
+      "_member_statuses": {
+        "intentguard": "ACTIVE"
+      },
+      "_status_disagreement": false,
+      "_members": [
+        {
+          "id": "it_0011",
+          "source": "intentguard",
+          "requirement": "네",
+          "status": "ACTIVE"
+        }
+      ]
+    },
+    {
+      "id": "merged_0014",
+      "requirement": "팀 기능도 나중에 만들까?",
+      "status": "ACTIVE",
+      "_sources": [
+        "intentguard"
+      ],
+      "_member_statuses": {
+        "intentguard": "ACTIVE"
+      },
+      "_status_disagreement": false,
+      "_members": [
+        {
+          "id": "it_0014",
+          "source": "intentguard",
+          "requirement": "팀 기능도 나중에 만들까?",
+          "status": "ACTIVE"
+        }
+      ]
+    },
+    {
+      "id": "merged_0005",
+      "requirement": "로그인은 일단 이메일만 지원하자",
+      "status": "ACTIVE",
+      "_sources": [
+        "baseline_1",
+        "baseline_3",
+        "intentguard"
+      ],
+      "_member_statuses": {
+        "intentguard": "SUPERSEDED",
+        "baseline_1": "ACTIVE",
+        "baseline_3": "ACTIVE"
+      },
+      "_status_disagreement": true,
+      "_members": [
+        {
+          "id": "it_0005",
+          "source": "intentguard",
+          "requirement": "로그인은 일단 이메일만 지원하자",
+          "status": "ACTIVE"
+        },
+        {
+          "id": "it_0018",
+          "source": "intentguard",
+          "requirement": "로그인은 일단 이메일만 지원하자",
+          "status": "SUPERSEDED"
+        },
+        {
+          "id": "it_0021",
+          "source": "baseline_1",
+          "requirement": "로그인은 일단 이메일만 지원하자",
+          "status": "ACTIVE"
+        },
+        {
+          "id": "it_0038",
+          "source": "baseline_3",
+          "requirement": "로그인은 일단 이메일만 지원하자",
+          "status": "ACTIVE"
+        }
+      ]
+    },
+    {
+      "id": "merged_0007",
+      "requirement": "타임아웃 늘리고 재시도 3번 하게 해줘",
+      "status": "ACTIVE",
+      "_sources": [
+        "baseline_2",
+        "baseline_3",
+        "intentguard"
+      ],
+      "_member_statuses": {
+        "intentguard": "ACTIVE",
+        "baseline_2": "ACTIVE",
+        "baseline_3": "ACTIVE"
+      },
+      "_status_disagreement": false,
+      "_members": [
+        {
+          "id": "it_0007",
+          "source": "intentguard",
+          "requirement": "타임아웃 늘리고 재시도 3번 하게 해줘",
+          "status": "ACTIVE"
+        },
+        {
+          "id": "it_0031",
+          "source": "baseline_2",
+          "requirement": "타임아웃 늘리고 재시도 3번 하게 해줘",
+          "status": "ACTIVE"
+        },
+        {
+          "id": "it_0039",
+          "source": "baseline_3",
+          "requirement": "타임아웃 늘리고 재시도 3번 하게 해줘",
+          "status": "ACTIVE"
+        }
+      ]
+    },
+    {
+      "id": "merged_0006",
+      "requirement": "그리고 분석 결과를 공유할 수 있는 링크 생성 기능도 추가해줘",
+      "status": "ACTIVE",
+      "_sources": [
+        "baseline_1",
+        "baseline_2",
+        "intentguard"
+      ],
+      "_member_statuses": {
+        "intentguard": "REJECTED",
+        "baseline_1": "ACTIVE",
+        "baseline_2": "ACTIVE"
+      },
+      "_status_disagreement": true,
+      "_members": [
+        {
+          "id": "it_0006",
+          "source": "intentguard",
+          "requirement": "그리고 분석 결과를 공유할 수 있는 링크 생성 기능도 추가해줘",
+          "status": "REJECTED"
+        },
+        {
+          "id": "it_0022",
+          "source": "baseline_1",
+          "requirement": "그리고 분석 결과를 공유할 수 있는 링크 생성 기능도 추가해줘",
+          "status": "ACTIVE"
+        },
+        {
+          "id": "it_0030",
+          "source": "baseline_2",
+          "requirement": "그리고 분석 결과를 공유할 수 있는 링크 생성 기능도 추가해줘",
+          "status": "ACTIVE"
+        }
+      ]
+    },
+    {
+      "id": "merged_0009",
+      "requirement": "이거 왜 안 되지?",
+      "status": "ACTIVE",
+      "_sources": [
+        "baseline_1",
+        "baseline_3",
+        "intentguard"
+      ],
+      "_member_statuses": {
+        "intentguard": "ACTIVE",
+        "baseline_1": "ACTIVE",
+        "baseline_3": "ACTIVE"
+      },
+      "_status_disagreement": false,
+      "_members": [
+        {
+          "id": "it_0009",
+          "source": "intentguard",
+          "requirement": "이거 왜 안 되지?",
+          "status": "ACTIVE"
+        },
+        {
+          "id": "it_0025",
+          "source": "baseline_1",
+          "requirement": "이거 왜 안 되지?",
+          "status": "ACTIVE"
+        },
+        {
+          "id": "it_0042",
+          "source": "baseline_3",
+          "requirement": "이거 왜 안 되지?",
+          "status": "ACTIVE"
+        }
+      ]
+    }
+  ]
+}

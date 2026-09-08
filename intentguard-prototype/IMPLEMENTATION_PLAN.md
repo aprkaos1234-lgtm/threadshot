@@ -143,20 +143,40 @@ CLI 가 STOP 메시지를 출력하고 종료한다.
 
 ---
 
-## STEP 4 이후 (아직 실행하지 않음)
+## STEP 4 이후 — 구현 상태
 
-| STEP | 내용 | 상태 |
-|---|---|---|
-| 4 | 샘플 검토 후 필터 규칙 수정 | 사용자 검토 대기 |
-| 5 | stage별 token/cost 계산 | 미실행 |
-| 6 | `full_run_cost_estimate.md` → **2차 강제 중단** | 미실행 |
-| 7 | 전체 history IntentGuard Pipeline (Stage 1–7) | 미실행 |
-| 8 | Baseline ×3 | 미실행 |
-| 9 | Candidate Retrieval + Semantic Merge | 미실행 |
-| 10 | 4-way Blind Evaluation | 미실행 |
-| 11 | MANUAL_MISSING_REQUIREMENTS | 미실행 |
-| 12 | Hidden source 복원 + 집계 | 미실행 |
-| 13 | `RESULT.md` | 미실행 |
+| STEP | 내용 | 코드 | 실행 |
+|---|---|---|---|
+| 4 | 샘플 검토 후 필터 규칙 수정 | `src/filter.js` + `npm test` | 사용자 검토 대기 |
+| 5 | stage별 token/cost 계산 | `src/tokens.js`, `src/cost.js` | ✅ (비용 $0) |
+| 6 | `full_run_cost_estimate.md` → **2차 강제 중단** | `src/estimate.js` | ✅ (비용 $0) |
+| 7 | 전체 history IntentGuard Pipeline (Stage 2–7) | `src/pipeline.js` | API 키 필요 |
+| 8 | Baseline ×3 + context 분석 | `src/baseline.js` | API 키 필요 |
+| 9 | Candidate Retrieval + Semantic Merge | `src/similar.js`, `src/merge.js` | API 키 필요 |
+| 10 | 4-way Blind Evaluation | `src/evaluate.js` | 대화형 |
+| 11 | MANUAL_MISSING_REQUIREMENTS | `src/evaluate.js` | 대화형 |
+| 12 | Hidden source 복원 + 집계 | `src/result.js` | ✅ |
+| 13 | `RESULT.md` | `src/result.js` | ✅ |
+
+전 단계 배선은 `npm run test:e2e` 가 mock 모델로 검증합니다 (API 호출 0회).
+산출물의 실제 모양은 `fixtures/example-run/` 에 있습니다.
+
+### 구현하면서 실제로 발견한 것
+
+1. **정정 발언은 어휘 검색으로 절대 안 잡힌다.**
+   "아니 3회 말고 5회로 하자" ↔ "무료 사용자는 월 3회만 제한해" 유사도 **0.011**.
+   주어를 반복하지 않기 때문이다. 검색이 놓치면 Stage 5 가 아예 돌지 못하고
+   IntentGuard 는 Baseline 으로 퇴화한다. → CHANGE/REJECTION 후보는
+   시간상 직전 후보들을 무조건 후보군에 넣도록 고쳤다 (`src/pipeline.js` Stage 4).
+
+2. **AMBIGUOUS 오탐.** Stage 7 이 timestamp 없는 원본 이벤트를 읽어서
+   모든 사건이 같은 시각으로 취급됐고, 명백한 `CREATED → REJECTED` 가
+   AMBIGUOUS 로 밀려났다. 명세 §13 이 경고한 바로 그 실패를 코드가 저지르고 있었다.
+   회귀 테스트로 고정했다.
+
+3. **`rl.question` 은 파이프 입력에서 조용히 죽는다.** 버퍼된 줄이 한꺼번에 도착하면
+   두 번째 질문이 영영 resolve 되지 않고, 프로세스가 **exit code 0 으로** 종료되며
+   아무것도 저장하지 않는다. 줄 큐 방식으로 교체했다.
 
 ## 대상 프로젝트 보호 (§35)
 

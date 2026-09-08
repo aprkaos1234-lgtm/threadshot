@@ -8,7 +8,7 @@
 | 프로젝트 | `/home/user/demo-app` |
 | 세션 파일 수 | 3 |
 | 적용한 범위 | 전체 이력 |
-| 생성 시각 | 2026-09-07T15:03:40.811Z |
+| 생성 시각 | 2026-09-08T00:51:39.492Z |
 
 검토 방법: 각 샘플의 분류가 **틀렸다면** 그 항목에 메모를 남기고,
 `src/filter.js` 의 규칙을 고친 뒤 이 명령을 다시 실행한다 (STEP 4).
@@ -46,7 +46,7 @@
 
 ### HUMAN_INTENT #1
 
-- id: `370a9cbf-b396-49e3-bbdb-dcfe11dcfbf9`
+- id: `718ecbb3-44c8-434c-b08c-82bb5ebefe8f`
 - time: `2026-03-02T09:00:00.000Z`
 - confidence: 0.8
 - rule: requirement/imperative marker
@@ -59,7 +59,7 @@
 
 ### HUMAN_INTENT #2
 
-- id: `b99ecd82-2552-463f-990e-aa4c9e381484`
+- id: `fd72e3e9-6234-460c-94ca-d8b8ab03efbd`
 - time: `2026-03-02T09:45:00.000Z`
 - confidence: 0.8
 - rule: requirement/imperative marker
@@ -72,7 +72,7 @@
 
 ### HUMAN_INTENT #3
 
-- id: `1674085a-9eb1-44c5-aacc-90d0acc49e69`
+- id: `38f97d3c-e3aa-4e9e-9e5c-b89c338d167e`
 - time: `2026-03-02T10:05:00.000Z`
 - confidence: 0.8
 - rule: requirement/imperative marker
@@ -85,7 +85,7 @@
 
 ### HUMAN_INTENT #4
 
-- id: `fe760999-7b5d-49c2-9a43-098b0f30c2f1`
+- id: `8e1c47b1-285d-4bbf-8d16-e7c035bac401`
 - time: `2026-03-02T11:08:00.000Z`
 - confidence: 0.8
 - rule: requirement/imperative marker
@@ -98,7 +98,7 @@
 
 ### HUMAN_INTENT #5
 
-- id: `c569acbb-af5b-44c9-a5d8-d9b9f39f513f`
+- id: `dfefe9dd-a63c-4e7b-ae3e-0820b1a1e22c`
 - time: `2026-03-02T11:38:00.000Z`
 - confidence: 0.8
 - rule: requirement/imperative marker
@@ -111,7 +111,7 @@
 
 ### HUMAN_INTENT #6
 
-- id: `1e337b0a-4caf-430b-8923-72ff32f52b0b`
+- id: `23517887-59f4-4e57-8eb2-94ffed40f78c`
 - time: `2026-03-02T12:00:00.000Z`
 - confidence: 0.8
 - rule: requirement/imperative marker
@@ -124,7 +124,7 @@
 
 ### HUMAN_INTENT #7
 
-- id: `8bfd0d1d-29f8-49e7-8a69-4b91fa14e89d`
+- id: `38ab3101-95c0-4304-8f71-6fedc12becc6`
 - time: `2026-04-11T10:00:00.000Z`
 - confidence: 0.8
 - rule: requirement/imperative marker
@@ -137,7 +137,7 @@
 
 ### HUMAN_INTENT #8
 
-- id: `998504bf-8979-408c-b9f5-5d298564fd17`
+- id: `f6195954-9961-4237-89b7-03723a56cb62`
 - time: `2026-04-11T11:43:00.000Z`
 - confidence: 0.8
 - rule: requirement/imperative marker
@@ -150,7 +150,7 @@
 
 ### HUMAN_INTENT #9
 
-- id: `b68696ac-c94e-4da8-960b-927a824b0ce5`
+- id: `ad9c94cc-4daf-43e7-9de6-2b0882adbd3a`
 - time: `2026-05-20T09:37:00.000Z`
 - confidence: 0.8
 - rule: requirement/imperative marker
@@ -163,7 +163,7 @@
 
 ### HUMAN_INTENT #10
 
-- id: `bc9cdf4d-478f-40e3-9256-e688dfb21ab9`
+- id: `28a108a9-3dad-4966-a5a3-51f03e8d407c`
 - time: `2026-05-20T09:57:00.000Z`
 - confidence: 0.8
 - rule: requirement/imperative marker
@@ -176,7 +176,7 @@
 
 ### HUMAN_INTENT #11
 
-- id: `ab6b6f5d-1440-4543-a3e8-079f744363ce`
+- id: `2b2d0920-4310-44e9-a7a1-1e37a13202df`
 - time: `2026-05-20T10:45:00.000Z`
 - confidence: 0.8
 - rule: requirement/imperative marker
@@ -195,7 +195,7 @@
 
 ### HUMAN_CORRECTION #1
 
-- id: `e7ded08a-e286-47e6-9642-c054b6dea693`
+- id: `362c408e-5b08-4bca-a0ec-66a7117df0ae`
 - time: `2026-04-11T10:45:00.000Z`
 - confidence: 0.8
 - rule: correction marker
@@ -208,7 +208,7 @@
 
 ### HUMAN_CORRECTION #2
 
-- id: `3733ba3c-5f9e-4443-84c7-a7e73ae69e21`
+- id: `2cb27240-057b-4a2f-a945-3f30569e619a`
 - time: `2026-05-20T08:30:00.000Z`
 - confidence: 0.8
 - rule: correction marker
@@ -221,7 +221,7 @@
 
 ### HUMAN_CORRECTION #3
 
-- id: `3924371c-1d42-4808-96b6-c5dcc7a31267`
+- id: `f16068ae-6bdb-4f41-bc9d-5d056c7c03cf`
 - time: `2026-05-20T08:45:00.000Z`
 - confidence: 0.8
 - rule: correction marker
@@ -234,7 +234,7 @@
 
 ### HUMAN_CORRECTION #4
 
-- id: `7d903f33-8e08-4af3-bde0-b88d39d83795`
+- id: `adcce67c-1b16-481e-aafc-495ec044405b`
 - time: `2026-05-20T10:35:00.000Z`
 - confidence: 0.45
 - rule: short message, no vocabulary hit; soft rejection — but "됐어" can also mean "it works now"; needs context
@@ -247,7 +247,7 @@
 
 ### HUMAN_CORRECTION #5
 
-- id: `4908ea2b-07a5-4e2e-ac81-7c3223995284`
+- id: `5329b14e-fe8d-43a3-b150-5419699d94df`
 - time: `2026-05-20T11:26:00.000Z`
 - confidence: 0.8
 - rule: correction marker
@@ -266,11 +266,11 @@
 
 ### HUMAN_CONFIRMATION #1
 
-- id: `d977a873-6b8c-4ca9-aaef-d669e4489ff1`
+- id: `24b1a4be-01b5-47f3-aed1-1cded3990ea8`
 - time: `2026-03-02T10:08:00.000Z`
 - confidence: 0.8
 - rule: short affirmative — must be read against prior context
-- context: `b99ecd82-2552-463f-990e-aa4c9e381484`, `1674085a-9eb1-44c5-aacc-90d0acc49e69`
+- context: `fd72e3e9-6234-460c-94ca-d8b8ab03efbd`, `38f97d3c-e3aa-4e9e-9e5c-b89c338d167e`
 
 ```text
 ㅇㅇ
@@ -280,11 +280,11 @@
 
 ### HUMAN_CONFIRMATION #2
 
-- id: `af9d1cb6-ab35-40cc-9ac1-3e57cdabfac2`
+- id: `e77a571e-c27a-4322-92c7-7d4df2d60099`
 - time: `2026-04-11T10:47:00.000Z`
 - confidence: 0.8
 - rule: short affirmative — must be read against prior context
-- context: `8bfd0d1d-29f8-49e7-8a69-4b91fa14e89d`, `e7ded08a-e286-47e6-9642-c054b6dea693`
+- context: `38ab3101-95c0-4304-8f71-6fedc12becc6`, `362c408e-5b08-4bca-a0ec-66a7117df0ae`
 
 ```text
 ㅇㅋ
@@ -294,11 +294,11 @@
 
 ### HUMAN_CONFIRMATION #3
 
-- id: `213e8226-a9f9-4b57-b5e1-c6268be88ff4`
+- id: `d5eb4e9e-fbda-40f1-b45b-36558a754a5b`
 - time: `2026-05-20T08:47:00.000Z`
 - confidence: 0.8
 - rule: short affirmative — must be read against prior context
-- context: `3733ba3c-5f9e-4443-84c7-a7e73ae69e21`, `3924371c-1d42-4808-96b6-c5dcc7a31267`
+- context: `2cb27240-057b-4a2f-a945-3f30569e619a`, `f16068ae-6bdb-4f41-bc9d-5d056c7c03cf`
 
 ```text
 네
@@ -314,7 +314,7 @@
 
 ### HUMAN_CONTEXT #1
 
-- id: `682ff4b2-6548-46df-996d-205ea8989db9`
+- id: `68519b42-6118-41c7-8458-bdfc6e16f806`
 - time: `2026-04-11T11:12:00.000Z`
 - confidence: 0.7
 - rule: question shape — not an active requirement on its own
@@ -333,7 +333,7 @@ export async function GET() {
 
 ### HUMAN_CONTEXT #2
 
-- id: `d8790d2d-b952-491e-b3de-c675b45f2352`
+- id: `be579133-7623-4560-adbe-479a9509f6a6`
 - time: `2026-05-20T10:32:00.000Z`
 - confidence: 0.7
 - rule: short message, no vocabulary hit; question shape — not an active requirement on its own
@@ -352,11 +352,11 @@ export async function GET() {
 
 ### LOW_INFORMATION #1
 
-- id: `9a20cc14-ce60-4570-ad38-90ef018920b0`
+- id: `f13749da-2763-4f5a-acb6-e5f7b71ee328`
 - time: `2026-03-02T11:40:00.000Z`
 - confidence: 0.85
 - rule: continuation / filler
-- context: `fe760999-7b5d-49c2-9a43-098b0f30c2f1`, `c569acbb-af5b-44c9-a5d8-d9b9f39f513f`
+- context: `8e1c47b1-285d-4bbf-8d16-e7c035bac401`, `dfefe9dd-a63c-4e7b-ae3e-0820b1a1e22c`
 
 ```text
 계속
@@ -366,11 +366,11 @@ export async function GET() {
 
 ### LOW_INFORMATION #2
 
-- id: `97a6de14-4f99-42a3-98fe-aa1e4f6f7d67`
+- id: `84630a17-73ae-457b-b6e7-504537956129`
 - time: `2026-04-11T11:13:00.000Z`
 - confidence: 0.85
 - rule: continuation / filler
-- context: `af9d1cb6-ab35-40cc-9ac1-3e57cdabfac2`, `682ff4b2-6548-46df-996d-205ea8989db9`
+- context: `e77a571e-c27a-4322-92c7-7d4df2d60099`, `68519b42-6118-41c7-8458-bdfc6e16f806`
 
 ```text
 음
@@ -380,11 +380,11 @@ export async function GET() {
 
 ### LOW_INFORMATION #3
 
-- id: `e030195e-61d6-46ce-9641-73847914470a`
+- id: `f9fefb17-6a45-483c-a9c2-311fe03f95ac`
 - time: `2026-05-20T10:46:00.000Z`
 - confidence: 0.7
 - rule: too short to carry intent
-- context: `7d903f33-8e08-4af3-bde0-b88d39d83795`, `ab6b6f5d-1440-4543-a3e8-079f744363ce`
+- context: `adcce67c-1b16-481e-aafc-495ec044405b`, `2b2d0920-4310-44e9-a7a1-1e37a13202df`
 
 ```text
 .
@@ -409,7 +409,7 @@ _해당 없음._
 
 ### NOISE #1 — TOOL_OR_SYSTEM_CONTENT
 
-- id: `45c95ca3-01f9-4866-a388-3534b3564b74` · time: `2026-03-02T09:00:00.000Z` · route: `tool_result` · raw 0 chars
+- id: `2ba2e509-38b0-4706-b123-eb8fc4790779` · time: `2026-03-02T09:00:00.000Z` · route: `tool_result` · raw 0 chars
 - rule: tool_result record
 
 ```text
@@ -420,7 +420,7 @@ _해당 없음._
 
 ### NOISE #2 — ERROR_LOG
 
-- id: `8f63c10d-7023-4ee5-8f77-e44a4dbe1124` · time: `2026-03-02T11:55:00.000Z` · route: `human` · raw 334 chars
+- id: `6cfdc412-985c-4509-8da5-9b0eb1f77036` · time: `2026-03-02T11:55:00.000Z` · route: `human` · raw 334 chars
 - rule: stack trace / error output shape
 
 ```text
@@ -436,7 +436,7 @@ requests.exceptions.ConnectionError: HTTPSConnectionPool(host='trends.google.com
 
 ### NOISE #3 — TOOL_OR_SYSTEM_CONTENT
 
-- id: `4b2dacbf-0be9-4020-ad58-0b3a6f9fe7ad` · time: `2026-03-02T09:45:00.000Z` · route: `tool_result` · raw 0 chars
+- id: `79dd4ff9-4ccd-455f-be1c-ba5676afa56d` · time: `2026-03-02T09:45:00.000Z` · route: `tool_result` · raw 0 chars
 - rule: tool_result record
 
 ```text
@@ -447,7 +447,7 @@ requests.exceptions.ConnectionError: HTTPSConnectionPool(host='trends.google.com
 
 ### NOISE #4 — TOOL_OR_SYSTEM_CONTENT
 
-- id: `0c07058b-b86a-43a5-92e5-17af23a72311` · time: `2026-03-02T10:05:00.000Z` · route: `tool_result` · raw 0 chars
+- id: `6c4781cb-0e41-4fed-9778-42bf0b0bb2bd` · time: `2026-03-02T10:05:00.000Z` · route: `tool_result` · raw 0 chars
 - rule: tool_result record
 
 ```text
@@ -458,7 +458,7 @@ requests.exceptions.ConnectionError: HTTPSConnectionPool(host='trends.google.com
 
 ### NOISE #5 — TOOL_OR_SYSTEM_CONTENT
 
-- id: `166ba2eb-f907-488f-9992-9ca5c4b23312` · time: `2026-03-02T11:08:00.000Z` · route: `tool_result` · raw 0 chars
+- id: `660a0033-f3fb-4a58-8ed8-8edd977a812f` · time: `2026-03-02T11:08:00.000Z` · route: `tool_result` · raw 0 chars
 - rule: tool_result record
 
 ```text
@@ -469,7 +469,7 @@ requests.exceptions.ConnectionError: HTTPSConnectionPool(host='trends.google.com
 
 ### NOISE #6 — TOOL_OR_SYSTEM_CONTENT
 
-- id: `83464ab6-c9e9-487c-ae8f-620b32a173f1` · time: `2026-03-02T11:38:00.000Z` · route: `tool_result` · raw 0 chars
+- id: `c48b8ab4-8e98-4662-bd08-efd77f9366da` · time: `2026-03-02T11:38:00.000Z` · route: `tool_result` · raw 0 chars
 - rule: tool_result record
 
 ```text
@@ -480,7 +480,7 @@ requests.exceptions.ConnectionError: HTTPSConnectionPool(host='trends.google.com
 
 ### NOISE #7 — TOOL_OR_SYSTEM_CONTENT
 
-- id: `18beea84-c567-438b-af68-fc64465718a5` · time: `2026-03-02T12:00:00.000Z` · route: `tool_result` · raw 0 chars
+- id: `a0a78d9a-b1c7-4dd0-89e3-397f11dd706a` · time: `2026-03-02T12:00:00.000Z` · route: `tool_result` · raw 0 chars
 - rule: tool_result record
 
 ```text
@@ -491,7 +491,7 @@ requests.exceptions.ConnectionError: HTTPSConnectionPool(host='trends.google.com
 
 ### NOISE #8 — TOOL_OR_SYSTEM_CONTENT
 
-- id: `b36e705a-070b-4e24-bd94-c5f0459f1513` · time: `2026-04-11T10:00:00.000Z` · route: `tool_result` · raw 0 chars
+- id: `30bf63df-b866-4754-b1ec-15ba9fecb29c` · time: `2026-04-11T10:00:00.000Z` · route: `tool_result` · raw 0 chars
 - rule: tool_result record
 
 ```text
@@ -502,7 +502,7 @@ requests.exceptions.ConnectionError: HTTPSConnectionPool(host='trends.google.com
 
 ### NOISE #9 — TOOL_OR_SYSTEM_CONTENT
 
-- id: `a4e28707-56c3-4644-9f87-1fe7846dced3` · time: `2026-04-11T10:05:00.000Z` · route: `human` · raw 106 chars
+- id: `af6b8fe7-43f3-4e54-ab11-b37b8697505c` · time: `2026-04-11T10:05:00.000Z` · route: `human` · raw 106 chars
 - rule: system/slash/wake envelope: ^\/[A-Za-z0-9_:-]+\s*$
 
 ```text
@@ -513,7 +513,7 @@ requests.exceptions.ConnectionError: HTTPSConnectionPool(host='trends.google.com
 
 ### NOISE #10 — TOOL_OR_SYSTEM_CONTENT
 
-- id: `a4aa271c-e9a0-43cb-99b7-91871feb681a` · time: `2026-04-11T10:45:00.000Z` · route: `tool_result` · raw 0 chars
+- id: `65248b3e-a7fc-4ebb-bacf-240d87267c05` · time: `2026-04-11T10:45:00.000Z` · route: `tool_result` · raw 0 chars
 - rule: tool_result record
 
 ```text
@@ -524,7 +524,7 @@ requests.exceptions.ConnectionError: HTTPSConnectionPool(host='trends.google.com
 
 ### NOISE #11 — TOOL_OR_SYSTEM_CONTENT
 
-- id: `8d607915-4ba4-4441-87d2-008f786c8b9d` · time: `2026-04-11T10:47:00.000Z` · route: `sidechain` · raw 73 chars
+- id: `d5115341-0895-4051-8ec9-6f973d711d7d` · time: `2026-04-11T10:47:00.000Z` · route: `sidechain` · raw 73 chars
 - rule: isSidechain=true (sub-agent)
 
 ```text
@@ -535,7 +535,7 @@ requests.exceptions.ConnectionError: HTTPSConnectionPool(host='trends.google.com
 
 ### NOISE #12 — TOOL_OR_SYSTEM_CONTENT
 
-- id: `1fe0b9cc-c5e8-4549-9695-658e7b3a9901` · time: `2026-04-11T11:12:00.000Z` · route: `tool_result` · raw 0 chars
+- id: `f41da0bc-d041-489c-9700-ea3b649eb492` · time: `2026-04-11T11:12:00.000Z` · route: `tool_result` · raw 0 chars
 - rule: tool_result record
 
 ```text
@@ -546,7 +546,7 @@ requests.exceptions.ConnectionError: HTTPSConnectionPool(host='trends.google.com
 
 ### NOISE #13 — TOOL_OR_SYSTEM_CONTENT
 
-- id: `556b927f-fb40-4c24-bb57-a0ef3bf7bea8` · time: `2026-04-11T11:43:00.000Z` · route: `tool_result` · raw 0 chars
+- id: `8fac104a-8a7f-4c06-b5eb-1cd59355a93e` · time: `2026-04-11T11:43:00.000Z` · route: `tool_result` · raw 0 chars
 - rule: tool_result record
 
 ```text
@@ -557,7 +557,7 @@ requests.exceptions.ConnectionError: HTTPSConnectionPool(host='trends.google.com
 
 ### NOISE #14 — TOOL_OR_SYSTEM_CONTENT
 
-- id: `7922e76f-2699-44e0-bc83-5d3700a7b3bf` · time: `2026-05-20T08:30:00.000Z` · route: `tool_result` · raw 0 chars
+- id: `ecd329a9-6ef0-4c5a-b71b-4275cc1bc2a1` · time: `2026-05-20T08:30:00.000Z` · route: `tool_result` · raw 0 chars
 - rule: tool_result record
 
 ```text
@@ -568,7 +568,7 @@ requests.exceptions.ConnectionError: HTTPSConnectionPool(host='trends.google.com
 
 ### NOISE #15 — TOOL_OR_SYSTEM_CONTENT
 
-- id: `b9c5c567-5555-4ce6-8aa6-1623329b632d` · time: `2026-05-20T08:45:00.000Z` · route: `tool_result` · raw 0 chars
+- id: `01317be3-4f12-4640-97d5-1f23e1212838` · time: `2026-05-20T08:45:00.000Z` · route: `tool_result` · raw 0 chars
 - rule: tool_result record
 
 ```text
@@ -579,7 +579,7 @@ requests.exceptions.ConnectionError: HTTPSConnectionPool(host='trends.google.com
 
 ### NOISE #16 — TOOL_OR_SYSTEM_CONTENT
 
-- id: `fadd2aeb-d3ff-4651-895f-324c0d7c024b` · time: `2026-05-20T09:37:00.000Z` · route: `tool_result` · raw 0 chars
+- id: `c5358f47-1abd-4387-9dc6-07e7213a3531` · time: `2026-05-20T09:37:00.000Z` · route: `tool_result` · raw 0 chars
 - rule: tool_result record
 
 ```text
@@ -590,7 +590,7 @@ requests.exceptions.ConnectionError: HTTPSConnectionPool(host='trends.google.com
 
 ### NOISE #17 — TOOL_OR_SYSTEM_CONTENT
 
-- id: `9510a007-0aab-46a4-a8e4-61bfa535ca0c` · time: `2026-05-20T09:57:00.000Z` · route: `tool_result` · raw 0 chars
+- id: `b065d440-3500-4e53-9d18-c12957d45234` · time: `2026-05-20T09:57:00.000Z` · route: `tool_result` · raw 0 chars
 - rule: tool_result record
 
 ```text
@@ -601,7 +601,7 @@ requests.exceptions.ConnectionError: HTTPSConnectionPool(host='trends.google.com
 
 ### NOISE #18 — TOOL_OR_SYSTEM_CONTENT
 
-- id: `4f8f7efb-50da-422e-8951-615bf22ea73e` · time: `2026-05-20T11:26:00.000Z` · route: `tool_result` · raw 0 chars
+- id: `4b862902-2d41-4ddf-a6f0-6c94b055901e` · time: `2026-05-20T11:26:00.000Z` · route: `tool_result` · raw 0 chars
 - rule: tool_result record
 
 ```text
@@ -618,7 +618,7 @@ confidence <= 0.6 인 human 분류 항목. 규칙이 확신하지 못한 것들�
 
 ### AMBIGUOUS #1 — HUMAN_CORRECTION (conf 0.45)
 
-- id: `7d903f33-8e08-4af3-bde0-b88d39d83795` · rule: short message, no vocabulary hit; soft rejection — but "됐어" can also mean "it works now"; needs context
+- id: `adcce67c-1b16-481e-aafc-495ec044405b` · rule: short message, no vocabulary hit; soft rejection — but "됐어" can also mean "it works now"; needs context
 
 ```text
 아직은 됐어

@@ -151,14 +151,19 @@ const QUESTION = [
   /\?\s*$/, /어때/, /어떻게/, /뭐야/, /무엇/, /인가요/, /있나요/, /될까/, /할까/, /가능해/,
   /맞아\?/, /왜/, /\bwhy\b/i, /\bwhat\b/i, /\bhow\b/i, /\bcan you\b/i, /\bis it\b/i,
   /\bshould we\b/i, /\bdoes\b/i,
+  // Tag questions ("…되지", "…있지") are frequently typed with no question mark
+  // at all, and Korean lets a word trail the verb ("연결되있지 이컴퓨터").
+  // Checked after the requirement rules, so "…하게 해줘" still wins.
+  /[가-힣]지\s*[?？]?(\s+\S{1,12})?\s*$/m,
 ];
 
 // Korean marks a request by verb ending, not by a keyword. A keyword list
 // alone missed "…기준으로 써줘" and "…자동 갱신하게", which are plainly
 // requirements. These match the ending of any line.
 const KO_REQUEST_ENDING = [
-  /[가-힣]\s*줘\s*[.!~…]*$/m,        // …해줘 / …써줘 / …넣어줘
-  /[가-힣]\s*주세요\s*[.!~…]*$/m,
+  // "줘" need not end the line: "완성해서 줘, 일단 프로토타입" is still a request.
+  /[가-힣]\s*줘(\s*[,.!~…]|\s*$)/m,   // …해줘 / …써줘 / …넣어줘
+  /[가-힣]\s*주세요(\s*[,.!~…]|\s*$)/m,
   /[가-힣]게\s*[.!~…]*$/m,            // …되게 / …갱신하게
   /[가-힣]자\s*[.!~…]*$/m,            // …하자 / …바꾸자
   /[가-힣]해\s*[.!~…]*$/m,            // …제한해

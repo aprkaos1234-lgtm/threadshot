@@ -1,0 +1,114 @@
+{
+  "generated": "2026-09-08T00:51:39.564Z",
+  "count": 18,
+  "items": [
+    {
+      "n": 1,
+      "merged_id": "merged_0003",
+      "requirement": "결과 카드에 쿠팡 검색 링크를 같이 넣어줘",
+      "proposed_status": "ACTIVE"
+    },
+    {
+      "n": 2,
+      "merged_id": "merged_0012",
+      "requirement": "한국시간 오전 6시를 하루 갱신 기준으로 써줘",
+      "proposed_status": "ACTIVE"
+    },
+    {
+      "n": 3,
+      "merged_id": "merged_0004",
+      "requirement": "ㅇㅇ",
+      "proposed_status": "ACTIVE"
+    },
+    {
+      "n": 4,
+      "merged_id": "merged_0001",
+      "requirement": "구글 트렌드에서 한국 인기 검색어를 가져와서 쇼핑 상품형 키워드만 골라주는 웹앱을 만들어줘",
+      "proposed_status": "ACTIVE"
+    },
+    {
+      "n": 5,
+      "merged_id": "merged_0017",
+      "requirement": "테스트하는 동안에는 월 3회 제한 풀어줘. 계속 걸려서 확인이 안 돼",
+      "proposed_status": "ACTIVE"
+    },
+    {
+      "n": 6,
+      "merged_id": "merged_0010",
+      "requirement": "아니 3회 말고 5회로 하자. 초반엔 좀 넉넉하게 주는 게 나을 것 같아",
+      "proposed_status": "ACTIVE"
+    },
+    {
+      "n": 7,
+      "merged_id": "merged_0016",
+      "requirement": "상단에 마지막 업데이트 시간 표시해줘",
+      "proposed_status": "ACTIVE"
+    },
+    {
+      "n": 8,
+      "merged_id": "merged_0018",
+      "requirement": "아까 만든 공유 링크 기능은 빼자. 스팸 신고가 들어올 것 같아",
+      "proposed_status": "ACTIVE"
+    },
+    {
+      "n": 9,
+      "merged_id": "merged_0015",
+      "requirement": "아직은 됐어",
+      "proposed_status": "ACTIVE"
+    },
+    {
+      "n": 10,
+      "merged_id": "merged_0013",
+      "requirement": "앱 켜둔 상태면 10분마다 날짜 경계 확인해서 자동 갱신하게",
+      "proposed_status": "ACTIVE"
+    },
+    {
+      "n": 11,
+      "merged_id": "merged_0002",
+      "requirement": "무료 사용자는 월 3회만 분석할 수 있게 제한해",
+      "proposed_status": "ACTIVE"
+    },
+    {
+      "n": 12,
+      "merged_id": "merged_0008",
+      "requirement": "ㅇㅋ",
+      "proposed_status": "ACTIVE"
+    },
+    {
+      "n": 13,
+      "merged_id": "merged_0011",
+      "requirement": "네",
+      "proposed_status": "ACTIVE"
+    },
+    {
+      "n": 14,
+      "merged_id": "merged_0014",
+      "requirement": "팀 기능도 나중에 만들까?",
+      "proposed_status": "ACTIVE"
+    },
+    {
+      "n": 15,
+      "merged_id": "merged_0005",
+      "requirement": "로그인은 일단 이메일만 지원하자",
+      "proposed_status": "ACTIVE"
+    },
+    {
+      "n": 16,
+      "merged_id": "merged_0007",
+      "requirement": "타임아웃 늘리고 재시도 3번 하게 해줘",
+      "proposed_status": "ACTIVE"
+    },
+    {
+      "n": 17,
+      "merged_id": "merged_0006",
+      "requirement": "그리고 분석 결과를 공유할 수 있는 링크 생성 기능도 추가해줘",
+      "proposed_status": "ACTIVE"
+    },
+    {
+      "n": 18,
+      "merged_id": "merged_0009",
+      "requirement": "이거 왜 안 되지?",
+      "proposed_status": "ACTIVE"
+    }
+  ]
+}

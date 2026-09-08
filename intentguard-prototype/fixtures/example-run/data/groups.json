@@ -1,0 +1,255 @@
+{
+  "generated": "2026-09-08T00:51:39.524Z",
+  "lexical_pairs_judged": 27,
+  "exhaustive_pairs_avoided": 210,
+  "judgements": [
+    {
+      "a": "cand_0002",
+      "b": "cand_0013",
+      "verdict": "SAME_TOPIC"
+    },
+    {
+      "a": "cand_0002",
+      "b": "cand_0008",
+      "verdict": "SAME_TOPIC"
+    },
+    {
+      "a": "cand_0002",
+      "b": "cand_0006",
+      "verdict": "DIFFERENT_TOPIC"
+    },
+    {
+      "a": "cand_0003",
+      "b": "cand_0020",
+      "verdict": "SAME_TOPIC"
+    },
+    {
+      "a": "cand_0005",
+      "b": "cand_0021",
+      "verdict": "SAME_TOPIC"
+    },
+    {
+      "a": "cand_0006",
+      "b": "cand_0018",
+      "verdict": "DIFFERENT_TOPIC"
+    },
+    {
+      "a": "cand_0008",
+      "b": "cand_0013",
+      "verdict": "SAME_TOPIC"
+    },
+    {
+      "a": "cand_0009",
+      "b": "cand_0014",
+      "verdict": "DIFFERENT_TOPIC"
+    },
+    {
+      "a": "cand_0012",
+      "b": "cand_0020",
+      "verdict": "SAME_TOPIC"
+    },
+    {
+      "a": "cand_0009",
+      "b": "cand_0004",
+      "verdict": "DIFFERENT_TOPIC"
+    },
+    {
+      "a": "cand_0009",
+      "b": "cand_0005",
+      "verdict": "DIFFERENT_TOPIC"
+    },
+    {
+      "a": "cand_0009",
+      "b": "cand_0006",
+      "verdict": "SAME_TOPIC"
+    },
+    {
+      "a": "cand_0009",
+      "b": "cand_0007",
+      "verdict": "DIFFERENT_TOPIC"
+    },
+    {
+      "a": "cand_0009",
+      "b": "cand_0008",
+      "verdict": "DIFFERENT_TOPIC"
+    },
+    {
+      "a": "cand_0013",
+      "b": "cand_0009",
+      "verdict": "DIFFERENT_TOPIC"
+    },
+    {
+      "a": "cand_0013",
+      "b": "cand_0010",
+      "verdict": "DIFFERENT_TOPIC"
+    },
+    {
+      "a": "cand_0013",
+      "b": "cand_0011",
+      "verdict": "DIFFERENT_TOPIC"
+    },
+    {
+      "a": "cand_0013",
+      "b": "cand_0012",
+      "verdict": "DIFFERENT_TOPIC"
+    },
+    {
+      "a": "cand_0014",
+      "b": "cand_0010",
+      "verdict": "DIFFERENT_TOPIC"
+    },
+    {
+      "a": "cand_0014",
+      "b": "cand_0011",
+      "verdict": "DIFFERENT_TOPIC"
+    },
+    {
+      "a": "cand_0014",
+      "b": "cand_0012",
+      "verdict": "DIFFERENT_TOPIC"
+    },
+    {
+      "a": "cand_0014",
+      "b": "cand_0013",
+      "verdict": "DIFFERENT_TOPIC"
+    },
+    {
+      "a": "cand_0021",
+      "b": "cand_0016",
+      "verdict": "DIFFERENT_TOPIC"
+    },
+    {
+      "a": "cand_0021",
+      "b": "cand_0017",
+      "verdict": "DIFFERENT_TOPIC"
+    },
+    {
+      "a": "cand_0021",
+      "b": "cand_0018",
+      "verdict": "DIFFERENT_TOPIC"
+    },
+    {
+      "a": "cand_0021",
+      "b": "cand_0019",
+      "verdict": "DIFFERENT_TOPIC"
+    },
+    {
+      "a": "cand_0021",
+      "b": "cand_0020",
+      "verdict": "DIFFERENT_TOPIC"
+    }
+  ],
+  "groups": [
+    {
+      "id": "grp_001",
+      "label": "구글 트렌드에서 한국 인기 검색어를 가져와서 쇼핑 상품형 키워드만 골라주는 웹앱을 만들어줘",
+      "candidate_ids": [
+        "cand_0001"
+      ]
+    },
+    {
+      "id": "grp_002",
+      "label": "무료 사용자는 월 3회만 분석할 수 있게 제한해",
+      "candidate_ids": [
+        "cand_0002",
+        "cand_0008",
+        "cand_0013"
+      ]
+    },
+    {
+      "id": "grp_003",
+      "label": "결과 카드에 쿠팡 검색 링크를 같이 넣어줘",
+      "candidate_ids": [
+        "cand_0003",
+        "cand_0012",
+        "cand_0020"
+      ]
+    },
+    {
+      "id": "grp_004",
+      "label": "ㅇㅇ",
+      "candidate_ids": [
+        "cand_0004"
+      ]
+    },
+    {
+      "id": "grp_005",
+      "label": "로그인은 일단 이메일만 지원하자",
+      "candidate_ids": [
+        "cand_0005",
+        "cand_0021"
+      ]
+    },
+    {
+      "id": "grp_006",
+      "label": "그리고 분석 결과를 공유할 수 있는 링크 생성 기능도 추가해줘",
+      "candidate_ids": [
+        "cand_0006",
+        "cand_0009"
+      ]
+    },
+    {
+      "id": "grp_007",
+      "label": "타임아웃 늘리고 재시도 3번 하게 해줘",
+      "candidate_ids": [
+        "cand_0007"
+      ]
+    },
+    {
+      "id": "grp_008",
+      "label": "ㅇㅋ",
+      "candidate_ids": [
+        "cand_0010"
+      ]
+    },
+    {
+      "id": "grp_009",
+      "label": "이거 왜 안 되지?",
+      "candidate_ids": [
+        "cand_0011"
+      ]
+    },
+    {
+      "id": "grp_010",
+      "label": "아니 3회 말고 5회로 하자. 초반엔 좀 넉넉하게 주는 게 나을 것 같아",
+      "candidate_ids": [
+        "cand_0014"
+      ]
+    },
+    {
+      "id": "grp_011",
+      "label": "네",
+      "candidate_ids": [
+        "cand_0015"
+      ]
+    },
+    {
+      "id": "grp_012",
+      "label": "한국시간 오전 6시를 하루 갱신 기준으로 써줘",
+      "candidate_ids": [
+        "cand_0016"
+      ]
+    },
+    {
+      "id": "grp_013",
+      "label": "앱 켜둔 상태면 10분마다 날짜 경계 확인해서 자동 갱신하게",
+      "candidate_ids": [
+        "cand_0017"
+      ]
+    },
+    {
+      "id": "grp_014",
+      "label": "팀 기능도 나중에 만들까?",
+      "candidate_ids": [
+        "cand_0018"
+      ]
+    },
+    {
+      "id": "grp_015",
+      "label": "아직은 됐어",
+      "candidate_ids": [
+        "cand_0019"
+      ]
+    }
+  ]
+}

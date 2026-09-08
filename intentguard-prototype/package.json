@@ -4,11 +4,21 @@
   "private": true,
   "description": "Falsification harness for the IntentGuard hypothesis. Not a product.",
   "scripts": {
-    "analyze": "node src/analyze.js",
     "projects": "node src/analyze.js --list-projects",
-    "test": "node test.js"
+    "analyze": "node src/analyze.js",
+    "estimate": "node src/cli.js estimate",
+    "pipeline": "node src/cli.js pipeline",
+    "baseline": "node src/cli.js baseline",
+    "merge": "node src/cli.js merge",
+    "evaluate": "node src/cli.js evaluate",
+    "result": "node src/cli.js result",
+    "test": "node test.js",
+    "test:e2e": "node test-e2e.js"
   },
   "engines": {
     "node": ">=18"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.124.0"
   }
 }

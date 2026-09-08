@@ -7,8 +7,8 @@
 |---|---|
 | 프로젝트 | `/home/user/threadshot` |
 | 세션 파일 수 | 1 |
-| 적용한 범위 | --limit 200 (전체 24개가 한도 이하) |
-| 생성 시각 | 2026-09-07T15:03:26.851Z |
+| 적용한 범위 | --limit 200 (전체 91개가 한도 이하) |
+| 생성 시각 | 2026-09-08T00:53:09.339Z |
 
 검토 방법: 각 샘플의 분류가 **틀렸다면** 그 항목에 메모를 남기고,
 `src/filter.js` 의 규칙을 고친 뒤 이 명령을 다시 실행한다 (STEP 4).
@@ -19,9 +19,9 @@
 ## ⚠️ 이 데이터셋은 가설 검증에 충분하지 않다
 
 - 세션 파일이 1개뿐이다. 여러 세션에 걸친 개발 이력이 아니다 (명세 §2).
-- 이력 기간이 0.01일이다. "긴 시간축의 변경/취소/재활성화"가 존재할 수 없는 길이다.
-- 사람 메시지가 1개뿐이다. 필터 품질을 통계적으로 평가할 수 없다.
-- intent-bearing 메시지가 1개뿐이다. Requirement 복구 성능을 비교할 대상이 없다.
+- 이력 기간이 0.42일이다. "긴 시간축의 변경/취소/재활성화"가 존재할 수 없는 길이다.
+- 사람 메시지가 4개뿐이다. 필터 품질을 통계적으로 평가할 수 없다.
+- intent-bearing 메시지가 2개뿐이다. Requirement 복구 성능을 비교할 대상이 없다.
 
 명세 §2: *"짧고 단순한 프로젝트의 결과로 IntentGuard 사업성을 판정하지 않는다."*
 
@@ -42,11 +42,22 @@
 
 ---
 
-## HUMAN_INTENT — 0개 (샘플 0개)
+## HUMAN_INTENT — 1개 (샘플 1개)
 
 요구사항을 담고 있다고 판단한 메시지. **여기 노이즈가 섞이면 이후 전부 오염된다.**
 
-_해당 없음._
+### HUMAN_INTENT #1
+
+- id: `4c98dc4e-7d45-4d76-98df-da0a62d66702`
+- time: `2026-09-08T00:30:12.098Z`
+- confidence: 0.8
+- rule: requirement/imperative marker
+
+```text
+이프로젝트 사용하능하게 완성해서 줘, 일단 프로토타입ㅂ
+```
+
+판정: [ ] 맞음  [ ] 틀림 → 올바른 분류: ______
 
 ---
 
@@ -154,11 +165,35 @@ _해당 없음._
 
 ---
 
-## HUMAN_CONTEXT — 0개 (샘플 0개)
+## HUMAN_CONTEXT — 2개 (샘플 2개)
 
 질문/설명/아이디어. ACTIVE Requirement 가 되어서는 안 된다.
 
-_해당 없음._
+### HUMAN_CONTEXT #1
+
+- id: `42bfef5b-9663-4d89-85d6-3f0b1b942059`
+- time: `2026-09-07T22:32:29.556Z`
+- confidence: 0.7
+- rule: short message, no vocabulary hit; question shape — not an active requirement on its own
+
+```text
+pc로가면바로사용되지
+```
+
+판정: [ ] 맞음  [ ] 틀림 → 올바른 분류: ______
+
+### HUMAN_CONTEXT #2
+
+- id: `bad93ee7-7b72-4857-857d-bae0fad50c78`
+- time: `2026-09-08T00:28:37.998Z`
+- confidence: 0.7
+- rule: short message, no vocabulary hit; question shape — not an active requirement on its own
+
+```text
+git 연결되있지 이컴퓨터
+```
+
+판정: [ ] 맞음  [ ] 틀림 → 올바른 분류: ______
 
 ---
 
@@ -178,7 +213,7 @@ _해당 없음._
 
 ---
 
-## 제외된 Noise 샘플 — 23개 중 30개
+## 제외된 Noise 샘플 — 87개 중 30개
 
 여기에 **진짜 사람이 쓴 요구사항이 섞여 있으면 그것이 가장 심각한 오류다.**
 (누락은 Precision 지표에 잡히지 않는다.)
@@ -194,7 +229,27 @@ _해당 없음._
 
 판정: [ ] 노이즈 맞음  [ ] **사람 메시지였음 (심각)**
 
-### NOISE #2 — TOOL_OR_SYSTEM_CONTENT
+### NOISE #2 — PASTED_CONTENT
+
+- id: `87091f90-a518-43d6-b124-37043cf5afc6` · time: `2026-09-08T00:32:08.161Z` · route: `human` · raw 103149 chars
+- rule: bulk code/terminal paste shape
+
+```text
+Base directory for this skill: /tmp/claude-0/bundled-skills/2.1.263/91efeef4c50f38777da2ffb807f1d327/claude-api
+
+# Building LLM-Powered Applications with Claude
+
+This skill helps you build LLM-powered applications with Claude. Choose the right surface based on your needs, detect the project language, then read the relevant language-specific documentation.
+
+## Before You Start
+
+Scan the target file (or, if no target file, the prompt and project) for non-Anthropic provider markers - `import openai
+… [truncated, 103149 chars total]
+```
+
+판정: [ ] 노이즈 맞음  [ ] **사람 메시지였음 (심각)**
+
+### NOISE #3 — TOOL_OR_SYSTEM_CONTENT
 
 - id: `ec4987ed-2074-4ffc-8783-eb8f02aea454` · time: `2026-09-07T14:53:31.104Z` · route: `tool_result` · raw 0 chars
 - rule: tool_result record
@@ -205,7 +260,7 @@ _해당 없음._
 
 판정: [ ] 노이즈 맞음  [ ] **사람 메시지였음 (심각)**
 
-### NOISE #3 — TOOL_OR_SYSTEM_CONTENT
+### NOISE #4 — TOOL_OR_SYSTEM_CONTENT
 
 - id: `15a59468-37d0-4368-8da7-517371dea0dd` · time: `2026-09-07T14:53:36.929Z` · route: `tool_result` · raw 0 chars
 - rule: tool_result record
@@ -216,7 +271,7 @@ _해당 없음._
 
 판정: [ ] 노이즈 맞음  [ ] **사람 메시지였음 (심각)**
 
-### NOISE #4 — TOOL_OR_SYSTEM_CONTENT
+### NOISE #5 — TOOL_OR_SYSTEM_CONTENT
 
 - id: `646568fd-36a3-4c79-a663-9b133f5c3b7e` · time: `2026-09-07T14:53:37.028Z` · route: `tool_result` · raw 0 chars
 - rule: tool_result record
@@ -227,7 +282,7 @@ _해당 없음._
 
 판정: [ ] 노이즈 맞음  [ ] **사람 메시지였음 (심각)**
 
-### NOISE #5 — TOOL_OR_SYSTEM_CONTENT
+### NOISE #6 — TOOL_OR_SYSTEM_CONTENT
 
 - id: `f0f8788e-9b0a-45d7-8bf3-16c54325ba8b` · time: `2026-09-07T14:53:46.680Z` · route: `tool_result` · raw 0 chars
 - rule: tool_result record
@@ -238,7 +293,7 @@ _해당 없음._
 
 판정: [ ] 노이즈 맞음  [ ] **사람 메시지였음 (심각)**
 
-### NOISE #6 — TOOL_OR_SYSTEM_CONTENT
+### NOISE #7 — TOOL_OR_SYSTEM_CONTENT
 
 - id: `10638b4e-c6d0-42a8-946b-62471aa479eb` · time: `2026-09-07T14:53:48.429Z` · route: `tool_result` · raw 0 chars
 - rule: tool_result record
@@ -249,7 +304,7 @@ _해당 없음._
 
 판정: [ ] 노이즈 맞음  [ ] **사람 메시지였음 (심각)**
 
-### NOISE #7 — TOOL_OR_SYSTEM_CONTENT
+### NOISE #8 — TOOL_OR_SYSTEM_CONTENT
 
 - id: `f67296d8-40df-431e-8728-6bce3201e118` · time: `2026-09-07T14:54:00.692Z` · route: `tool_result` · raw 0 chars
 - rule: tool_result record
@@ -260,7 +315,7 @@ _해당 없음._
 
 판정: [ ] 노이즈 맞음  [ ] **사람 메시지였음 (심각)**
 
-### NOISE #8 — TOOL_OR_SYSTEM_CONTENT
+### NOISE #9 — TOOL_OR_SYSTEM_CONTENT
 
 - id: `70048368-24fe-474e-9a70-9d5fda0f23db` · time: `2026-09-07T14:54:10.790Z` · route: `tool_result` · raw 0 chars
 - rule: tool_result record
@@ -271,7 +326,7 @@ _해당 없음._
 
 판정: [ ] 노이즈 맞음  [ ] **사람 메시지였음 (심각)**
 
-### NOISE #9 — TOOL_OR_SYSTEM_CONTENT
+### NOISE #10 — TOOL_OR_SYSTEM_CONTENT
 
 - id: `aaf0c9a1-4dd3-4683-84d8-9fef4e98d278` · time: `2026-09-07T14:55:00.097Z` · route: `tool_result` · raw 0 chars
 - rule: tool_result record
@@ -282,7 +337,7 @@ _해당 없음._
 
 판정: [ ] 노이즈 맞음  [ ] **사람 메시지였음 (심각)**
 
-### NOISE #10 — TOOL_OR_SYSTEM_CONTENT
+### NOISE #11 — TOOL_OR_SYSTEM_CONTENT
 
 - id: `6908c52d-5e16-4928-8fdd-8ca0f84651b0` · time: `2026-09-07T14:55:50.665Z` · route: `tool_result` · raw 0 chars
 - rule: tool_result record
@@ -293,7 +348,7 @@ _해당 없음._
 
 판정: [ ] 노이즈 맞음  [ ] **사람 메시지였음 (심각)**
 
-### NOISE #11 — TOOL_OR_SYSTEM_CONTENT
+### NOISE #12 — TOOL_OR_SYSTEM_CONTENT
 
 - id: `d0122a10-b463-4f17-9e9e-2884fab011ad` · time: `2026-09-07T14:56:09.831Z` · route: `tool_result` · raw 0 chars
 - rule: tool_result record
@@ -304,7 +359,7 @@ _해당 없음._
 
 판정: [ ] 노이즈 맞음  [ ] **사람 메시지였음 (심각)**
 
-### NOISE #12 — TOOL_OR_SYSTEM_CONTENT
+### NOISE #13 — TOOL_OR_SYSTEM_CONTENT
 
 - id: `83dab890-8310-4e88-b95a-cb72ff3060e9` · time: `2026-09-07T14:56:43.681Z` · route: `tool_result` · raw 0 chars
 - rule: tool_result record
@@ -315,7 +370,7 @@ _해당 없음._
 
 판정: [ ] 노이즈 맞음  [ ] **사람 메시지였음 (심각)**
 
-### NOISE #13 — TOOL_OR_SYSTEM_CONTENT
+### NOISE #14 — TOOL_OR_SYSTEM_CONTENT
 
 - id: `67ac2681-17ea-42fc-8384-534b4bec4953` · time: `2026-09-07T14:57:56.375Z` · route: `tool_result` · raw 0 chars
 - rule: tool_result record
@@ -326,7 +381,7 @@ _해당 없음._
 
 판정: [ ] 노이즈 맞음  [ ] **사람 메시지였음 (심각)**
 
-### NOISE #14 — TOOL_OR_SYSTEM_CONTENT
+### NOISE #15 — TOOL_OR_SYSTEM_CONTENT
 
 - id: `61822564-ede4-4bdf-b9c0-3160f275ca59` · time: `2026-09-07T14:58:11.729Z` · route: `tool_result` · raw 0 chars
 - rule: tool_result record
@@ -337,7 +392,7 @@ _해당 없음._
 
 판정: [ ] 노이즈 맞음  [ ] **사람 메시지였음 (심각)**
 
-### NOISE #15 — TOOL_OR_SYSTEM_CONTENT
+### NOISE #16 — TOOL_OR_SYSTEM_CONTENT
 
 - id: `f354f230-2b33-46df-b287-a51b608250ae` · time: `2026-09-07T14:58:21.022Z` · route: `tool_result` · raw 0 chars
 - rule: tool_result record
@@ -348,7 +403,7 @@ _해당 없음._
 
 판정: [ ] 노이즈 맞음  [ ] **사람 메시지였음 (심각)**
 
-### NOISE #16 — TOOL_OR_SYSTEM_CONTENT
+### NOISE #17 — TOOL_OR_SYSTEM_CONTENT
 
 - id: `4e1091a4-ac9e-4f1a-8aa0-7457a78d16ec` · time: `2026-09-07T14:59:53.573Z` · route: `tool_result` · raw 0 chars
 - rule: tool_result record
@@ -359,7 +414,7 @@ _해당 없음._
 
 판정: [ ] 노이즈 맞음  [ ] **사람 메시지였음 (심각)**
 
-### NOISE #17 — TOOL_OR_SYSTEM_CONTENT
+### NOISE #18 — TOOL_OR_SYSTEM_CONTENT
 
 - id: `2d950f40-5812-40f3-b6d3-c4f7c90c1456` · time: `2026-09-07T14:59:59.645Z` · route: `tool_result` · raw 0 chars
 - rule: tool_result record
@@ -370,7 +425,7 @@ _해당 없음._
 
 판정: [ ] 노이즈 맞음  [ ] **사람 메시지였음 (심각)**
 
-### NOISE #18 — TOOL_OR_SYSTEM_CONTENT
+### NOISE #19 — TOOL_OR_SYSTEM_CONTENT
 
 - id: `9ca09aea-7e89-4f73-8da1-bd728ebf4276` · time: `2026-09-07T15:00:09.089Z` · route: `tool_result` · raw 0 chars
 - rule: tool_result record
@@ -381,7 +436,7 @@ _해당 없음._
 
 판정: [ ] 노이즈 맞음  [ ] **사람 메시지였음 (심각)**
 
-### NOISE #19 — TOOL_OR_SYSTEM_CONTENT
+### NOISE #20 — TOOL_OR_SYSTEM_CONTENT
 
 - id: `d2919094-262e-4ef6-b614-2ab068b2e852` · time: `2026-09-07T15:01:01.341Z` · route: `tool_result` · raw 0 chars
 - rule: tool_result record
@@ -392,7 +447,7 @@ _해당 없음._
 
 판정: [ ] 노이즈 맞음  [ ] **사람 메시지였음 (심각)**
 
-### NOISE #20 — TOOL_OR_SYSTEM_CONTENT
+### NOISE #21 — TOOL_OR_SYSTEM_CONTENT
 
 - id: `92e782f9-2795-4780-91d9-bad0e09a6ba3` · time: `2026-09-07T15:01:07.734Z` · route: `tool_result` · raw 0 chars
 - rule: tool_result record
@@ -403,7 +458,7 @@ _해당 없음._
 
 판정: [ ] 노이즈 맞음  [ ] **사람 메시지였음 (심각)**
 
-### NOISE #21 — TOOL_OR_SYSTEM_CONTENT
+### NOISE #22 — TOOL_OR_SYSTEM_CONTENT
 
 - id: `7049795c-9441-47b9-8ee8-9facb197ea10` · time: `2026-09-07T15:02:02.132Z` · route: `tool_result` · raw 0 chars
 - rule: tool_result record
@@ -414,7 +469,7 @@ _해당 없음._
 
 판정: [ ] 노이즈 맞음  [ ] **사람 메시지였음 (심각)**
 
-### NOISE #22 — TOOL_OR_SYSTEM_CONTENT
+### NOISE #23 — TOOL_OR_SYSTEM_CONTENT
 
 - id: `f12877a9-ec94-48a2-9a1b-1fffe10b55db` · time: `2026-09-07T15:02:48.773Z` · route: `tool_result` · raw 0 chars
 - rule: tool_result record
@@ -425,9 +480,75 @@ _해당 없음._
 
 판정: [ ] 노이즈 맞음  [ ] **사람 메시지였음 (심각)**
 
-### NOISE #23 — TOOL_OR_SYSTEM_CONTENT
+### NOISE #24 — TOOL_OR_SYSTEM_CONTENT
 
 - id: `42c6bf75-6d05-417d-9e95-001024327a51` · time: `2026-09-07T15:02:56.226Z` · route: `tool_result` · raw 0 chars
+- rule: tool_result record
+
+```text
+(정제 후 텍스트 없음 — tool_result / 자동주입 context)
+```
+
+판정: [ ] 노이즈 맞음  [ ] **사람 메시지였음 (심각)**
+
+### NOISE #25 — TOOL_OR_SYSTEM_CONTENT
+
+- id: `ed423b5c-d25e-4161-8c6f-04b5cc0de1b3` · time: `2026-09-07T15:03:27.302Z` · route: `tool_result` · raw 0 chars
+- rule: tool_result record
+
+```text
+(정제 후 텍스트 없음 — tool_result / 자동주입 context)
+```
+
+판정: [ ] 노이즈 맞음  [ ] **사람 메시지였음 (심각)**
+
+### NOISE #26 — TOOL_OR_SYSTEM_CONTENT
+
+- id: `6b07b239-7810-4f8e-9464-3da202de4977` · time: `2026-09-07T15:03:40.833Z` · route: `tool_result` · raw 0 chars
+- rule: tool_result record
+
+```text
+(정제 후 텍스트 없음 — tool_result / 자동주입 context)
+```
+
+판정: [ ] 노이즈 맞음  [ ] **사람 메시지였음 (심각)**
+
+### NOISE #27 — TOOL_OR_SYSTEM_CONTENT
+
+- id: `856fd45d-0f1a-409c-b93f-20a42888dc16` · time: `2026-09-07T15:03:46.164Z` · route: `tool_result` · raw 0 chars
+- rule: tool_result record
+
+```text
+(정제 후 텍스트 없음 — tool_result / 자동주입 context)
+```
+
+판정: [ ] 노이즈 맞음  [ ] **사람 메시지였음 (심각)**
+
+### NOISE #28 — TOOL_OR_SYSTEM_CONTENT
+
+- id: `dc4f4346-2096-4e35-9a2f-c2369786cf40` · time: `2026-09-07T15:04:19.161Z` · route: `tool_result` · raw 0 chars
+- rule: tool_result record
+
+```text
+(정제 후 텍스트 없음 — tool_result / 자동주입 context)
+```
+
+판정: [ ] 노이즈 맞음  [ ] **사람 메시지였음 (심각)**
+
+### NOISE #29 — TOOL_OR_SYSTEM_CONTENT
+
+- id: `4d27e8ff-7502-4952-8968-874fb3d64bee` · time: `2026-09-07T15:04:24.692Z` · route: `tool_result` · raw 0 chars
+- rule: tool_result record
+
+```text
+(정제 후 텍스트 없음 — tool_result / 자동주입 context)
+```
+
+판정: [ ] 노이즈 맞음  [ ] **사람 메시지였음 (심각)**
+
+### NOISE #30 — TOOL_OR_SYSTEM_CONTENT
+
+- id: `8f9cd641-0004-4432-a591-35d0b4a296a8` · time: `2026-09-07T15:04:42.616Z` · route: `tool_result` · raw 0 chars
 - rule: tool_result record
 
 ```text

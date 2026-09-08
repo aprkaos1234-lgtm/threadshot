@@ -47,6 +47,13 @@ const CASES = [
   ['아까 만든 공유 링크 기능은 빼자. 스팸 신고가 들어올 것 같아', 'HUMAN_CORRECTION'],
   // soft rejection of a proposal
   ['아직은 됐어', 'HUMAN_CORRECTION'],
+  // Real messages from this project's own transcript that leaked to UNKNOWN.
+  // Korean tag questions are often typed with no question mark, and a word may
+  // trail the verb.
+  ['pc로가면바로사용되지', 'HUMAN_CONTEXT'],
+  ['git 연결되있지 이컴퓨터', 'HUMAN_CONTEXT'],
+  // "줘" followed by another clause rather than ending the line
+  ['이프로젝트 사용하능하게 완성해서 줘, 일단 프로토타입', 'HUMAN_INTENT'],
   // machinery
   ['/clear', 'TOOL_OR_SYSTEM_CONTENT'],
   ['<command-name>/clear</command-name><command-message>clear</command-message>', 'TOOL_OR_SYSTEM_CONTENT'],
@@ -103,6 +110,45 @@ check('legacy record with no origin field is still human', () => {
   // would silently erase the oldest — and most valuable — history.
   assert.strictEqual(R({ message: { role: 'user', content: '월 3회로 제한해줘' } }), 'human');
 });
+
+console.log('\ntemporal fold (spec §11) and ambiguity gating (spec §13)');
+{
+  const { foldEvents, decideFinal } = require('./src/pipeline');
+  const ev = (event, timestamp, confidence = 0.9) =>
+    ({ candidate_id: 'c_' + timestamp, event, current_statement: '무료 사용자는 월 3회', confidence, timestamp });
+
+  check('§11 worked example: created -> temporarily disabled -> reactivated = ACTIVE', () => {
+    const events = [ev('CREATED', '2026-09-01'), ev('TEMPORARILY_DISABLED', '2026-09-05'),
+      ev('REACTIVATED', '2026-09-10')];
+    const f = foldEvents(events);
+    assert.strictEqual(decideFinal(f, events).status, 'ACTIVE');
+    assert.deepStrictEqual(f.history.map((h) => h.event),
+      ['CREATED', 'TEMPORARILY_DISABLED', 'REACTIVATED']);
+  });
+  check('a temporary change that never ended stays TEMPORARY, not ACTIVE', () => {
+    const events = [ev('CREATED', '2026-09-01'), ev('TEMPORARILY_DISABLED', '2026-09-05')];
+    const d = decideFinal(foldEvents(events), events);
+    assert.strictEqual(d.status, 'TEMPORARY');
+    assert.ok(d.ambiguityReasons.some((r) => /temporary change with no recorded end/.test(r)));
+  });
+  check('created then rejected is REJECTED, not laundered into AMBIGUOUS', () => {
+    // Regressed once: ambiguity detection read the model's raw events, which
+    // carry no timestamp, so every event shared the "" bucket and a plain
+    // create-then-reject chain was flagged as a timestamp conflict.
+    const events = [ev('CREATED', '2026-03-02T11:38:00Z'), ev('REJECTED', '2026-04-11T10:45:00Z')];
+    const d = decideFinal(foldEvents(events), events);
+    assert.strictEqual(d.status, 'REJECTED', 'reasons: ' + JSON.stringify(d.ambiguityReasons));
+    assert.deepStrictEqual(d.ambiguityReasons, []);
+  });
+  check('genuinely simultaneous contradictory events ARE ambiguous', () => {
+    const events = [ev('CREATED', '2026-03-02T11:38:00Z'), ev('REJECTED', '2026-03-02T11:38:00Z')];
+    assert.strictEqual(decideFinal(foldEvents(events), events).status, 'AMBIGUOUS');
+  });
+  check('an UNCLEAR event forces AMBIGUOUS', () => {
+    const events = [ev('CREATED', '2026-09-01'), ev('UNCLEAR', '2026-09-05', 0.2)];
+    assert.strictEqual(decideFinal(foldEvents(events), events).status, 'AMBIGUOUS');
+  });
+}
 
 console.log('\ncontext linking (spec §6)');
 check('a bare confirmation is linked to the preceding human turn', () => {
